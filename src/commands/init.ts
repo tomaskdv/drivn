@@ -95,14 +95,14 @@ export async function init() {
   s.start('Installing dependencies')
 
   try {
-    execSync('npm install clsx tailwind-merge', {
+    execSync('npm install clsx tailwind-merge lucide-react', {
       cwd,
       stdio: 'ignore',
     })
     s.stop('Dependencies installed')
   } catch {
     s.stop('Failed to install dependencies')
-    p.log.warn('Run manually: npm install clsx tailwind-merge')
+    p.log.warn('Run manually: npm install clsx tailwind-merge lucide-react')
   }
 
   p.log.info(`Add components with: ${pc.cyan('npx drivn add button')}`)

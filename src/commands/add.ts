@@ -1,7 +1,7 @@
 import * as p from '@clack/prompts'
 import { join } from 'path'
 import { execSync } from 'child_process'
-import { getConfig, saveConfig, writeFile, fileExists } from '../utils/config.js'
+import { getConfig, writeFile, fileExists } from '../utils/config.js'
 import { registry, components } from '../registry/index.js'
 
 export async function add(componentNames: string[]) {
@@ -12,7 +12,7 @@ export async function add(componentNames: string[]) {
   const config = getConfig(cwd)
 
   if (!config) {
-    p.log.error('Drivn is not initialized. Run npx drivn init first.')
+    p.log.error('Drivn is not initialized. Run npx drivn@latest create first.')
     p.outro('Cancelled')
     process.exit(1)
   }
@@ -84,7 +84,6 @@ export async function add(componentNames: string[]) {
 
   const ext = config.typescript ? 'tsx' : 'jsx'
   const componentsDir = join(cwd, config.paths.components)
-  const installed = new Set(config.installed || [])
 
   for (const name of toInstall) {
     const filePath = join(componentsDir, `${name}.${ext}`)
@@ -108,11 +107,8 @@ export async function add(componentNames: string[]) {
     )
 
     writeFile(filePath, content)
-    installed.add(name)
     p.log.success(name)
   }
-
-  saveConfig(cwd, { ...config, installed: [...installed] })
 
   if (npmDeps.size) {
     const s = p.spinner()

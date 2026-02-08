@@ -10,7 +10,6 @@ export interface Config {
     components: string
     utils: string
   }
-  installed?: string[]
 }
 
 export function getConfig(cwd: string): Config | null {
