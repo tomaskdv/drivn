@@ -9,6 +9,7 @@ import {
   useCallback,
 } from 'react'
 import { cn } from '@/utils/cn'
+import { Button } from '@/components/ui/button'
 
 const styles = {
   base: 'relative inline-flex',
@@ -81,13 +82,15 @@ function Trigger({
 }: React.ButtonHTMLAttributes<HTMLButtonElement>) {
   const { open, setOpen } = useDropdown()
   return (
-    <button
+    <Button
+      variant="outline"
+      rounded="md"
       className={className}
       onClick={() => setOpen(!open)}
       {...props}
     >
       {children}
-    </button>
+    </Button>
   )
 }
 

@@ -9,6 +9,7 @@ import {
 } from 'react'
 import { X } from 'lucide-react'
 import { cn } from '@/utils/cn'
+import { Button } from '@/components/ui/button'
 
 const styles = {
   overlay: cn(
@@ -70,13 +71,15 @@ function Trigger({
 }: React.ButtonHTMLAttributes<HTMLButtonElement>) {
   const { setOpen } = useDialog()
   return (
-    <button
+    <Button
+      variant="outline"
+      rounded="md"
       className={className}
       onClick={() => setOpen(true)}
       {...props}
     >
       {children}
-    </button>
+    </Button>
   )
 }
 

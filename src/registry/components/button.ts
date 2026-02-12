@@ -4,7 +4,7 @@ import { cn } from '@/utils/cn'
 
 const styles = {
   base: cn(
-    'inline-flex items-center justify-center font-semibold rounded-full transition-all duration-150 cursor-pointer',
+    'inline-flex items-center justify-center font-semibold transition-all duration-150 cursor-pointer',
     'disabled:opacity-50 disabled:pointer-events-none'
   ),
   sizes: {
@@ -15,25 +15,30 @@ const styles = {
   variants: {
     default: 'bg-foreground text-background hover:scale-[1.02]',
     secondary: 'bg-card text-foreground border border-border hover:bg-accent hover:border-border',
-    outline: 'border border-border text-foreground hover:bg-accent hover:text-accent-foreground',
+    outline: 'border border-border text-foreground hover:border-foreground/20',
     destructive: 'bg-destructive text-destructive-foreground hover:bg-destructive/90',
+  },
+  rounded: {
+    md: 'rounded-md',
+    full: 'rounded-full',
   },
 }
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: keyof typeof styles.variants
   size?: keyof typeof styles.sizes
+  rounded?: keyof typeof styles.rounded
   loading?: boolean
   leftIcon?: React.ReactNode
   rightIcon?: React.ReactNode
 }
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant = 'default', size = 'md', loading, disabled, leftIcon, rightIcon, children, ...props }, ref) => (
+  ({ className, variant = 'default', size = 'md', rounded = 'full', loading, disabled, leftIcon, rightIcon, children, ...props }, ref) => (
     <button
       ref={ref}
       disabled={loading || disabled}
-      className={cn(styles.base, styles.sizes[size], styles.variants[variant], className)}
+      className={cn(styles.base, styles.sizes[size], styles.variants[variant], styles.rounded[rounded], className)}
       {...props}
     >
       {loading && <Loader2 className="h-4 w-4 animate-spin" />}

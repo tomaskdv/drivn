@@ -30,11 +30,18 @@ interface AccordionCtx {
 }
 
 const Ctx = createContext<AccordionCtx | null>(null)
+const ItemCtx = createContext<string | null>(null)
 
 function useAccordion() {
   const ctx = useContext(Ctx)
   if (!ctx) throw new Error('Accordion compound used outside <Accordion>')
   return ctx
+}
+
+function useItemValue() {
+  const value = useContext(ItemCtx)
+  if (!value) throw new Error('Accordion sub-component used outside <Accordion.Item>')
+  return value
 }
 
 function AccordionRoot({
@@ -65,17 +72,6 @@ function AccordionRoot({
 }
 
 function Item({
-  children,
-  className,
-}: {
-  value: string
-  children: React.ReactNode
-  className?: string
-}) {
-  return <div className={className}>{children}</div>
-}
-
-function Trigger({
   value,
   children,
   className,
@@ -84,7 +80,22 @@ function Trigger({
   children: React.ReactNode
   className?: string
 }) {
+  return (
+    <ItemCtx.Provider value={value}>
+      <div className={className}>{children}</div>
+    </ItemCtx.Provider>
+  )
+}
+
+function Trigger({
+  children,
+  className,
+}: {
+  children: React.ReactNode
+  className?: string
+}) {
   const { openItem, toggle } = useAccordion()
+  const value = useItemValue()
   const isOpen = openItem === value
   return (
     <button
@@ -98,15 +109,14 @@ function Trigger({
 }
 
 function Content({
-  value,
   children,
   className,
 }: {
-  value: string
   children: React.ReactNode
   className?: string
 }) {
   const { openItem } = useAccordion()
+  const value = useItemValue()
   const isOpen = openItem === value
   return (
     <div
