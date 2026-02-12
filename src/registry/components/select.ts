@@ -1,13 +1,6 @@
 export const select = `'use client'
 
-import {
-  createContext,
-  useContext,
-  useState,
-  useRef,
-  useEffect,
-  useCallback,
-} from 'react'
+import * as React from 'react'
 import { ChevronDown } from 'lucide-react'
 import { cn } from '@/utils/cn'
 
@@ -43,10 +36,10 @@ interface SelectCtx {
   onSelect: (v: string) => void
 }
 
-const Ctx = createContext<SelectCtx | null>(null)
+const Ctx = React.createContext<SelectCtx | null>(null)
 
 function useSelect() {
-  const ctx = useContext(Ctx)
+  const ctx = React.useContext(Ctx)
   if (!ctx) throw new Error('Select compound used outside <Select>')
   return ctx
 }
@@ -62,11 +55,11 @@ function SelectRoot({
   onChange?: (value: string) => void
   className?: string
 }) {
-  const [open, setOpen] = useState(false)
-  const ref = useRef<HTMLDivElement>(null)
+  const [open, setOpen] = React.useState(false)
+  const ref = React.useRef<HTMLDivElement>(null)
 
-  const close = useCallback(() => setOpen(false), [])
-  const onSelect = useCallback(
+  const close = React.useCallback(() => setOpen(false), [])
+  const onSelect = React.useCallback(
     (v: string) => {
       onChange?.(v)
       close()
@@ -74,7 +67,7 @@ function SelectRoot({
     [onChange, close]
   )
 
-  useEffect(() => {
+  React.useEffect(() => {
     const onClick = (e: MouseEvent) => {
       if (!ref.current?.contains(e.target as Node)) close()
     }

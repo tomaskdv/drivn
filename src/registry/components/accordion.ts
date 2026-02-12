@@ -1,11 +1,6 @@
 export const accordion = `'use client'
 
-import {
-  createContext,
-  useContext,
-  useState,
-  useCallback,
-} from 'react'
+import * as React from 'react'
 import { ChevronDown } from 'lucide-react'
 import { cn } from '@/utils/cn'
 
@@ -29,18 +24,20 @@ interface AccordionCtx {
   toggle: (value: string) => void
 }
 
-const Ctx = createContext<AccordionCtx | null>(null)
-const ItemCtx = createContext<string | null>(null)
+const Ctx = React.createContext<AccordionCtx | null>(null)
+const ItemCtx = React.createContext<string | null>(null)
 
 function useAccordion() {
-  const ctx = useContext(Ctx)
+  const ctx = React.useContext(Ctx)
   if (!ctx) throw new Error('Accordion compound used outside <Accordion>')
   return ctx
 }
 
 function useItemValue() {
-  const value = useContext(ItemCtx)
-  if (!value) throw new Error('Accordion sub-component used outside <Accordion.Item>')
+  const value = React.useContext(ItemCtx)
+  if (!value) throw new Error(
+    'Accordion sub-component used outside <Accordion.Item>'
+  )
   return value
 }
 
@@ -53,10 +50,10 @@ function AccordionRoot({
   defaultValue?: string
   className?: string
 }) {
-  const [openItem, setOpenItem] = useState<string | null>(
+  const [openItem, setOpenItem] = React.useState<string | null>(
     defaultValue ?? null
   )
-  const toggle = useCallback(
+  const toggle = React.useCallback(
     (value: string) =>
       setOpenItem((prev) => (prev === value ? null : value)),
     []

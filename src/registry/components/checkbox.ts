@@ -1,4 +1,4 @@
-export const checkbox = `import { forwardRef } from 'react'
+export const checkbox = `import * as React from 'react'
 import { cn } from '@/utils/cn'
 
 const styles = {
@@ -22,7 +22,7 @@ interface CheckboxProps
   label?: string
 }
 
-export const Checkbox = forwardRef<
+export const Checkbox = React.forwardRef<
   HTMLInputElement,
   CheckboxProps
 >(({ className, label, ...props }, ref) => (

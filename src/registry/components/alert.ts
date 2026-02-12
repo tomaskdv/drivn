@@ -1,4 +1,5 @@
-export const alert = `import { cn } from '@/utils/cn'
+export const alert = `import * as React from 'react'
+import { cn } from '@/utils/cn'
 
 const styles = {
   base: 'flex gap-3 p-4 rounded-[10px] border text-sm',
@@ -12,9 +13,13 @@ const styles = {
   description: 'text-sm opacity-90',
 }
 
+type IconProp =
+  | React.ComponentType<{ className?: string }>
+  | React.ReactElement
+
 interface AlertProps {
   variant?: keyof typeof styles.variants
-  icon?: React.ReactNode
+  icon?: IconProp
   title?: string
   className?: string
   children: React.ReactNode
@@ -22,14 +27,20 @@ interface AlertProps {
 
 export function Alert({
   variant = 'default',
-  icon,
+  icon: Icon,
   title,
   className,
   children,
 }: AlertProps) {
   return (
     <div className={cn(styles.base, styles.variants[variant], className)}>
-      {icon && <span className="flex-shrink-0 mt-0.5">{icon}</span>}
+      {Icon && (
+        <span className="flex-shrink-0 mt-0.5">
+          {React.isValidElement(Icon)
+            ? Icon
+            : <Icon />}
+        </span>
+      )}
       <div>
         {title && <p className={styles.title}>{title}</p>}
         <div className={styles.description}>{children}</div>

@@ -1,12 +1,6 @@
 export const dialog = `'use client'
 
-import {
-  createContext,
-  useContext,
-  useState,
-  useEffect,
-  useCallback,
-} from 'react'
+import * as React from 'react'
 import { X } from 'lucide-react'
 import { cn } from '@/utils/cn'
 import { Button } from '@/components/ui/button'
@@ -34,10 +28,10 @@ interface DialogCtx {
   setOpen: (v: boolean) => void
 }
 
-const Ctx = createContext<DialogCtx | null>(null)
+const Ctx = React.createContext<DialogCtx | null>(null)
 
 function useDialog() {
-  const ctx = useContext(Ctx)
+  const ctx = React.useContext(Ctx)
   if (!ctx) throw new Error('Dialog compound used outside <Dialog>')
   return ctx
 }
@@ -51,9 +45,9 @@ function DialogRoot({
   open?: boolean
   onOpenChange?: (open: boolean) => void
 }) {
-  const [uncontrolled, setUncontrolled] = useState(false)
+  const [uncontrolled, setUncontrolled] = React.useState(false)
   const open = controlled ?? uncontrolled
-  const setOpen = useCallback(
+  const setOpen = React.useCallback(
     (v: boolean) => {
       onOpenChange?.(v)
       if (controlled === undefined) setUncontrolled(v)
@@ -94,7 +88,7 @@ function Content({
 }) {
   const { open, setOpen } = useDialog()
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (!open) return
     const onKey = (e: KeyboardEvent) => {
       if (e.key === 'Escape') setOpen(false)

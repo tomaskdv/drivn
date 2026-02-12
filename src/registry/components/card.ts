@@ -1,4 +1,5 @@
-export const card = `import { cn } from '@/utils/cn'
+export const card = `import * as React from 'react'
+import { cn } from '@/utils/cn'
 
 const styles = {
   base: cn(

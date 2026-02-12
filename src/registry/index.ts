@@ -76,7 +76,7 @@ export const registry: RegistryEntry[] = [
   },
   {
     name: 'dropdown',
-    description: 'Dropdown menu with dot notation, icons, and click-outside',
+    description: 'Dropdown menu with dot notation, groups, separators, and click-outside',
     dependencies: [],
     npmDependencies: [],
   },

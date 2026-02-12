@@ -1,4 +1,5 @@
-export const tooltip = `import { cn } from '@/utils/cn'
+export const tooltip = `import * as React from 'react'
+import { cn } from '@/utils/cn'
 
 const styles = {
   base: 'relative inline-flex group',

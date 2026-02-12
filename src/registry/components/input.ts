@@ -1,4 +1,4 @@
-export const input = `import { forwardRef } from 'react'
+export const input = `import * as React from 'react'
 import { cn } from '@/utils/cn'
 
 const styles = {
@@ -10,9 +10,9 @@ const styles = {
   ),
 }
 
-interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {}
+type InputProps = React.InputHTMLAttributes<HTMLInputElement>
 
-export const Input = forwardRef<HTMLInputElement, InputProps>(
+export const Input = React.forwardRef<HTMLInputElement, InputProps>(
   ({ className, ...props }, ref) => (
     <input ref={ref} className={cn(styles.base, className)} {...props} />
   )

@@ -1,4 +1,4 @@
-export const textarea = `import { forwardRef } from 'react'
+export const textarea = `import * as React from 'react'
 import { cn } from '@/utils/cn'
 
 const styles = {
@@ -11,10 +11,9 @@ const styles = {
   ),
 }
 
-interface TextareaProps
-  extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {}
+type TextareaProps = React.TextareaHTMLAttributes<HTMLTextAreaElement>
 
-export const Textarea = forwardRef<
+export const Textarea = React.forwardRef<
   HTMLTextAreaElement,
   TextareaProps
 >(({ className, ...props }, ref) => (

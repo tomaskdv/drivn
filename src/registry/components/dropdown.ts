@@ -1,19 +1,12 @@
 export const dropdown = `'use client'
 
-import {
-  createContext,
-  useContext,
-  useState,
-  useRef,
-  useEffect,
-  useCallback,
-} from 'react'
+import * as React from 'react'
 import { cn } from '@/utils/cn'
 import { Button } from '@/components/ui/button'
 
 const styles = {
   base: 'relative inline-flex',
-  menu: cn(
+  content: cn(
     'absolute top-full mt-1 min-w-[180px] z-50',
     'bg-card border border-border rounded-[10px] p-1',
     'shadow-lg'
@@ -24,6 +17,12 @@ const styles = {
     'hover:bg-accent transition-colors cursor-pointer'
   ),
   destructive: 'text-destructive hover:bg-destructive/10',
+  group: 'py-1',
+  label: cn(
+    'px-3 py-1.5 text-xs font-medium',
+    'text-muted-foreground'
+  ),
+  separator: 'my-1 h-px bg-border',
   align: {
     left: 'left-0',
     right: 'right-0',
@@ -36,11 +35,13 @@ interface DropdownCtx {
   align: keyof typeof styles.align
 }
 
-const Ctx = createContext<DropdownCtx | null>(null)
+const Ctx = React.createContext<DropdownCtx | null>(null)
 
 function useDropdown() {
-  const ctx = useContext(Ctx)
-  if (!ctx) throw new Error('Dropdown compound used outside <Dropdown>')
+  const ctx = React.useContext(Ctx)
+  if (!ctx) throw new Error(
+    'Dropdown compound used outside <Dropdown>'
+  )
   return ctx
 }
 
@@ -53,17 +54,22 @@ function DropdownRoot({
   align?: keyof typeof styles.align
   className?: string
 }) {
-  const [open, setOpen] = useState(false)
-  const ref = useRef<HTMLDivElement>(null)
+  const [open, setOpen] = React.useState(false)
+  const ref = React.useRef<HTMLDivElement>(null)
 
-  const close = useCallback(() => setOpen(false), [])
+  const close = React.useCallback(
+    () => setOpen(false),
+    []
+  )
 
-  useEffect(() => {
+  React.useEffect(() => {
     const onClick = (e: MouseEvent) => {
-      if (!ref.current?.contains(e.target as Node)) close()
+      if (!ref.current?.contains(e.target as Node))
+        close()
     }
     document.addEventListener('mousedown', onClick)
-    return () => document.removeEventListener('mousedown', onClick)
+    return () =>
+      document.removeEventListener('mousedown', onClick)
   }, [close])
 
   return (
@@ -94,7 +100,7 @@ function Trigger({
   )
 }
 
-function Menu({
+function Content({
   children,
   className,
 }: {
@@ -104,22 +110,32 @@ function Menu({
   const { open, align } = useDropdown()
   if (!open) return null
   return (
-    <div className={cn(styles.menu, styles.align[align], className)}>
+    <div
+      className={cn(
+        styles.content,
+        styles.align[align],
+        className
+      )}
+    >
       {children}
     </div>
   )
 }
 
+type IconProp =
+  | React.ComponentType<{ className?: string }>
+  | React.ReactElement
+
 function Item({
   children,
   onClick,
-  icon,
+  icon: Icon,
   destructive,
   className,
 }: {
   children: React.ReactNode
   onClick?: () => void
-  icon?: React.ReactNode
+  icon?: IconProp
   destructive?: boolean
   className?: string
 }) {
@@ -136,15 +152,60 @@ function Item({
         setOpen(false)
       }}
     >
-      {icon}
+      {Icon && (
+        React.isValidElement(Icon)
+          ? Icon
+          : <Icon />
+      )}
       {children}
     </button>
   )
 }
 
+function Group({
+  children,
+  className,
+}: {
+  children: React.ReactNode
+  className?: string
+}) {
+  return (
+    <div className={cn(styles.group, className)}>
+      {children}
+    </div>
+  )
+}
+
+function Label({
+  children,
+  className,
+}: {
+  children: React.ReactNode
+  className?: string
+}) {
+  return (
+    <div className={cn(styles.label, className)}>
+      {children}
+    </div>
+  )
+}
+
+function DropdownSeparator({
+  className,
+}: {
+  className?: string
+}) {
+  return (
+    <div className={cn(styles.separator, className)} />
+  )
+}
+
 export const Dropdown = Object.assign(DropdownRoot, {
   Trigger,
-  Menu,
+  Content,
   Item,
+  Group,
+  Label,
+  Separator: DropdownSeparator,
 })
 `

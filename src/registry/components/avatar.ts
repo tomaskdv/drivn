@@ -1,4 +1,5 @@
-export const avatar = `import { cn } from '@/utils/cn'
+export const avatar = `import * as React from 'react'
+import { cn } from '@/utils/cn'
 
 const styles = {
   base: cn(
@@ -22,13 +23,21 @@ interface AvatarProps {
   className?: string
 }
 
-export function Avatar({ src, alt, fallback, size = 'md', className }: AvatarProps) {
+export function Avatar({
+  src,
+  alt,
+  fallback,
+  size = 'md',
+  className,
+}: AvatarProps) {
   return (
     <div className={cn(styles.base, styles.sizes[size], className)}>
       {src ? (
         <img src={src} alt={alt} className="w-full h-full object-cover" />
       ) : (
-        <span className="font-medium text-primary-foreground">{fallback?.slice(0, 2).toUpperCase()}</span>
+        <span className="font-medium text-primary-foreground">
+          {fallback?.slice(0, 2).toUpperCase()}
+        </span>
       )}
     </div>
   )

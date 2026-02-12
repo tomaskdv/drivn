@@ -1,7 +1,11 @@
-export const badge = `import { cn } from '@/utils/cn'
+export const badge = `import * as React from 'react'
+import { cn } from '@/utils/cn'
 
 const styles = {
-  base: 'inline-flex items-center gap-1.5 px-2.5 py-0.5 text-xs font-semibold rounded-full',
+  base: cn(
+    'inline-flex items-center gap-1.5 px-2.5 py-0.5',
+    'text-xs font-semibold rounded-full'
+  ),
   variants: {
     default: 'bg-primary/15 text-primary-light border border-primary/20',
     secondary: 'bg-secondary/15 text-secondary border border-secondary/30',

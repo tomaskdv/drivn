@@ -1,9 +1,8 @@
-export const progress = `import { cn } from '@/utils/cn'
+export const progress = `import * as React from 'react'
+import { cn } from '@/utils/cn'
 
 const styles = {
-  track: cn(
-    'w-full h-2 bg-accent rounded-full overflow-hidden'
-  ),
+  track: 'w-full h-2 bg-accent rounded-full overflow-hidden',
   bar: cn(
     'h-full bg-primary rounded-full',
     'transition-all duration-300 ease-out'

@@ -1,13 +1,6 @@
 export const popover = `'use client'
 
-import {
-  createContext,
-  useContext,
-  useState,
-  useRef,
-  useEffect,
-  useCallback,
-} from 'react'
+import * as React from 'react'
 import { cn } from '@/utils/cn'
 import { Button } from '@/components/ui/button'
 
@@ -32,10 +25,10 @@ interface PopoverCtx {
   position: keyof typeof styles.positions
 }
 
-const Ctx = createContext<PopoverCtx | null>(null)
+const Ctx = React.createContext<PopoverCtx | null>(null)
 
 function usePopover() {
-  const ctx = useContext(Ctx)
+  const ctx = React.useContext(Ctx)
   if (!ctx) throw new Error('Popover compound used outside <Popover>')
   return ctx
 }
@@ -49,12 +42,12 @@ function PopoverRoot({
   position?: keyof typeof styles.positions
   className?: string
 }) {
-  const [open, setOpen] = useState(false)
-  const ref = useRef<HTMLDivElement>(null)
+  const [open, setOpen] = React.useState(false)
+  const ref = React.useRef<HTMLDivElement>(null)
 
-  const close = useCallback(() => setOpen(false), [])
+  const close = React.useCallback(() => setOpen(false), [])
 
-  useEffect(() => {
+  React.useEffect(() => {
     const onClick = (e: MouseEvent) => {
       if (!ref.current?.contains(e.target as Node)) close()
     }

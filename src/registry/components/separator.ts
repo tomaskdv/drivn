@@ -1,4 +1,5 @@
-export const separator = `import { cn } from '@/utils/cn'
+export const separator = `import * as React from 'react'
+import { cn } from '@/utils/cn'
 
 const styles = {
   horizontal: 'w-full h-px bg-border',

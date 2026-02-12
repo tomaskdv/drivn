@@ -1,11 +1,6 @@
 export const tabs = `'use client'
 
-import {
-  createContext,
-  useContext,
-  useState,
-  useCallback,
-} from 'react'
+import * as React from 'react'
 import { cn } from '@/utils/cn'
 
 const styles = {
@@ -23,10 +18,10 @@ interface TabsCtx {
   setValue: (v: string) => void
 }
 
-const Ctx = createContext<TabsCtx | null>(null)
+const Ctx = React.createContext<TabsCtx | null>(null)
 
 function useTabs() {
-  const ctx = useContext(Ctx)
+  const ctx = React.useContext(Ctx)
   if (!ctx) throw new Error('Tabs compound used outside <Tabs>')
   return ctx
 }
@@ -44,11 +39,11 @@ function TabsRoot({
   onChange?: (value: string) => void
   className?: string
 }) {
-  const [uncontrolled, setUncontrolled] = useState(
+  const [uncontrolled, setUncontrolled] = React.useState(
     defaultValue ?? ''
   )
   const value = controlled ?? uncontrolled
-  const setValue = useCallback(
+  const setValue = React.useCallback(
     (v: string) => {
       onChange?.(v)
       if (controlled === undefined) setUncontrolled(v)
