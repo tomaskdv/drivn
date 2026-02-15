@@ -37,6 +37,10 @@ export function writeFile(path: string, content: string): void {
   writeFileSync(path, content)
 }
 
+export function readFile(path: string): string {
+  return readFileSync(path, 'utf-8')
+}
+
 export function fileExists(path: string): boolean {
   return existsSync(path)
 }

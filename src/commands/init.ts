@@ -4,7 +4,7 @@ import { join } from 'path'
 import { execSync } from 'child_process'
 import { detectFramework, FRAMEWORK_NAMES } from '../utils/framework.js'
 import { saveConfig, writeFile, fileExists } from '../utils/config.js'
-import { globals } from '../registry/globals.js'
+import { globalsBase } from '../registry/globals.js'
 
 const CN_UTIL = `import { type ClassValue, clsx } from 'clsx'
 import { twMerge } from 'tailwind-merge'
@@ -104,19 +104,19 @@ export async function init() {
     writeFile(cnPath, CN_UTIL)
   }
 
-  // Generate globals.css with theme tokens
+  // Write base globals with color tokens (light theme only)
   const existingGlobals = detectGlobalsPath(cwd)
 
   if (existingGlobals) {
     const addTokens = await p.confirm({
-      message: `Found ${pc.cyan(existingGlobals)}. Add Drivn theme tokens?`,
+      message: `Found ${pc.cyan(existingGlobals)}. Add Drivn color tokens?`,
       initialValue: true,
     })
 
     if (!p.isCancel(addTokens) && addTokens) {
-      writeFile(join(cwd, existingGlobals), globals)
+      writeFile(join(cwd, existingGlobals), globalsBase)
       config.paths.globals = existingGlobals
-      p.log.success(`Theme tokens written to ${pc.cyan(existingGlobals)}`)
+      p.log.success(`Color tokens written to ${pc.cyan(existingGlobals)}`)
     }
   } else {
     const defaultGlobals = projectInfo.srcDir
@@ -130,9 +130,9 @@ export async function init() {
     })
 
     if (!p.isCancel(globalsPath)) {
-      writeFile(join(cwd, globalsPath), globals)
+      writeFile(join(cwd, globalsPath), globalsBase)
       config.paths.globals = globalsPath
-      p.log.success(`Theme tokens written to ${pc.cyan(globalsPath)}`)
+      p.log.success(`Color tokens written to ${pc.cyan(globalsPath)}`)
     }
   }
 
@@ -153,6 +153,7 @@ export async function init() {
   }
 
   p.log.info(`Add components with: ${pc.cyan('npx drivn add button')}`)
+  p.log.info(`Add dark/light theme: ${pc.cyan('npx drivn add theme')}`)
 
   p.outro('Drivn initialized')
 }

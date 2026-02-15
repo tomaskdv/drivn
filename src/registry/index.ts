@@ -1,4 +1,5 @@
-import { globals } from './globals.js'
+import { globalsBase, themeTokens } from './globals.js'
+import { themeProvider } from './components/theme-provider.js'
 import { accordion } from './components/accordion.js'
 import { alert } from './components/alert.js'
 import { avatar } from './components/avatar.js'
@@ -19,7 +20,7 @@ import { textarea } from './components/textarea.js'
 import { toast } from './components/toast.js'
 import { tooltip } from './components/tooltip.js'
 
-export { globals }
+export { globalsBase, themeTokens, themeProvider }
 
 export interface RegistryEntry {
   name: string
@@ -132,6 +133,12 @@ export const registry: RegistryEntry[] = [
     npmDependencies: [],
   },
   {
+    name: 'theme',
+    description: 'Dark/light theme support with next-themes and ThemeProvider',
+    dependencies: [],
+    npmDependencies: ['next-themes'],
+  },
+  {
     name: 'toast',
     description: 'Toast notifications powered by Sonner',
     dependencies: [],
@@ -163,6 +170,7 @@ export type ComponentName =
   | 'switch'
   | 'tabs'
   | 'textarea'
+  | 'theme'
   | 'toast'
   | 'tooltip'
 
@@ -184,6 +192,7 @@ export const components: Record<ComponentName, string> = {
   switch: switch_,
   tabs,
   textarea,
+  theme: themeProvider,
   toast,
   tooltip,
 }
