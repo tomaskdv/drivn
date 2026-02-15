@@ -15,7 +15,7 @@ const styles = {
     lg: 'h-12 px-6 text-base gap-2',
   },
   variants: {
-    default: 'bg-foreground text-background hover:scale-[1.02]',
+    default: 'bg-foreground text-background hover:bg-foreground/90',
     secondary: cn(
       'bg-card text-foreground border border-border',
       'hover:bg-accent hover:border-border'
@@ -46,9 +46,7 @@ interface ButtonProps
 export const Button = React.forwardRef<
   HTMLButtonElement,
   ButtonProps
->(
-  (
-    {
+>(({
       className,
       variant = 'default',
       size = 'md',

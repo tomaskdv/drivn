@@ -8,7 +8,7 @@ const styles = {
   base: 'relative',
   trigger: cn(
     'flex items-center justify-between w-full h-10 px-4',
-    'bg-accent border border-input rounded-[10px] text-sm',
+    'border border-input rounded-[10px] text-sm',
     'focus:outline-none transition-colors',
     'cursor-pointer'
   ),
@@ -20,7 +20,8 @@ const styles = {
   menu: cn(
     'absolute top-full left-0 right-0 mt-1 z-50',
     'bg-card border border-border rounded-[10px] p-1',
-    'shadow-lg max-h-[200px] overflow-y-auto'
+    'shadow-lg max-h-[200px] overflow-y-auto',
+    'transition-[opacity,scale] duration-150 ease-out'
   ),
   option: cn(
     'flex items-center w-full px-3 py-2 text-sm rounded-lg',
@@ -115,9 +116,16 @@ function Menu({
   className?: string
 }) {
   const { open } = useSelect()
-  if (!open) return null
   return (
-    <div className={cn(styles.menu, className)}>
+    <div
+      className={cn(
+        styles.menu,
+        open
+          ? 'opacity-100 scale-100'
+          : 'opacity-0 scale-95 pointer-events-none',
+        className
+      )}
+    >
       {children}
     </div>
   )

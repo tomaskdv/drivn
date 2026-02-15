@@ -3,7 +3,7 @@ import { cn } from '@/utils/cn'
 
 const styles = {
   base: cn(
-    'w-full min-h-[80px] px-4 py-3 bg-accent',
+    'w-full min-h-[80px] px-4 py-3',
     'border border-input rounded-[10px]',
     'text-foreground placeholder:text-muted-foreground text-sm',
     'focus:outline-none transition-colors',

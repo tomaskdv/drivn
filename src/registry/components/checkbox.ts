@@ -1,44 +1,86 @@
-export const checkbox = `import * as React from 'react'
+export const checkbox = `'use client'
+
+import * as React from 'react'
+import { Check } from 'lucide-react'
 import { cn } from '@/utils/cn'
 
 const styles = {
   base: 'flex items-center gap-2 cursor-pointer',
-  input: 'peer sr-only',
   box: cn(
-    'w-3.5 h-3.5 rounded-[4px] border border-border',
-    'bg-accent transition-colors flex-shrink-0',
-    'flex items-center justify-center',
-    'peer-disabled:opacity-50 peer-disabled:cursor-default'
+    'w-4 h-4 rounded-[4px] border border-border',
+    'transition-colors flex-shrink-0',
+    'flex items-center justify-center'
   ),
-  check: cn(
-    'w-2.5 h-2.5 rounded-[2px] bg-primary',
-    'hidden peer-checked:block'
-  ),
+  checked: 'bg-primary border-primary',
   label: 'text-sm text-foreground select-none',
 }
 
 interface CheckboxProps
-  extends React.InputHTMLAttributes<HTMLInputElement> {
+  extends Omit<
+    React.InputHTMLAttributes<HTMLInputElement>,
+    'type'
+  > {
   label?: string
 }
 
 export const Checkbox = React.forwardRef<
   HTMLInputElement,
   CheckboxProps
->(({ className, label, ...props }, ref) => (
-  <label className={cn(styles.base, className)}>
-    <input
-      ref={ref}
-      type="checkbox"
-      className={styles.input}
-      {...props}
-    />
-    <span className={styles.box}>
-      <div className={styles.check} />
-    </span>
-    {label && <span className={styles.label}>{label}</span>}
-  </label>
-))
+>(({
+      className,
+      label,
+      checked,
+      defaultChecked,
+      onChange,
+      disabled,
+      ...props
+    },
+    ref
+  ) => {
+    const [internal, setInternal] = React.useState(
+      defaultChecked ?? false
+    )
+    const isControlled = checked !== undefined
+    const isChecked = isControlled ? checked : internal
+
+    return (
+      <label
+        className={cn(
+          styles.base,
+          disabled && 'opacity-50 cursor-default',
+          className
+        )}
+      >
+        <input
+          ref={ref}
+          type="checkbox"
+          className="sr-only"
+          checked={isChecked}
+          disabled={disabled}
+          onChange={(e) => {
+            if (!isControlled)
+              setInternal(e.target.checked)
+            onChange?.(e)
+          }}
+          {...props}
+        />
+        <span
+          className={cn(
+            styles.box,
+            isChecked && styles.checked
+          )}
+        >
+          {isChecked && (
+            <Check className="w-2.5 h-2.5 text-primary-foreground" />
+          )}
+        </span>
+        {label && (
+          <span className={styles.label}>{label}</span>
+        )}
+      </label>
+    )
+  }
+)
 
 Checkbox.displayName = 'Checkbox'
 `

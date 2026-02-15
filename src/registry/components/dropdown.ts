@@ -9,7 +9,8 @@ const styles = {
   content: cn(
     'absolute top-full mt-1 min-w-[180px] z-50',
     'bg-card border border-border rounded-[10px] p-1',
-    'shadow-lg'
+    'shadow-lg',
+    'transition-[opacity,scale] duration-150 ease-out'
   ),
   item: cn(
     'flex items-center gap-2 w-full px-3 py-2',
@@ -108,12 +109,14 @@ function Content({
   className?: string
 }) {
   const { open, align } = useDropdown()
-  if (!open) return null
   return (
     <div
       className={cn(
         styles.content,
         styles.align[align],
+        open
+          ? 'opacity-100 scale-100'
+          : 'opacity-0 scale-95 pointer-events-none',
         className
       )}
     >
@@ -155,7 +158,7 @@ function Item({
       {Icon && (
         React.isValidElement(Icon)
           ? Icon
-          : <Icon />
+          : <Icon className="w-4 h-4" />
       )}
       {children}
     </button>

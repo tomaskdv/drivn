@@ -9,6 +9,7 @@ export interface Config {
   paths: {
     components: string
     utils: string
+    globals?: string
   }
 }
 

@@ -8,11 +8,14 @@ import { Button } from '@/components/ui/button'
 const styles = {
   overlay: cn(
     'fixed inset-0 z-[200] flex items-center justify-center',
-    'bg-overlay backdrop-blur-sm'
+    'bg-overlay backdrop-blur-sm',
+    'transition-opacity duration-150 ease-out'
   ),
   content: cn(
     'relative w-full max-w-md mx-4 p-6',
-    'bg-card border border-border rounded-[20px] shadow-xl'
+    'bg-card border border-border rounded-[20px]',
+    'shadow-xl',
+    'transition-[scale] duration-150 ease-out'
   ),
   title: 'text-lg font-semibold text-foreground mb-4',
   close: cn(
@@ -101,16 +104,25 @@ function Content({
     }
   }, [open, setOpen])
 
-  if (!open) return null
-
   return (
     <div
-      className={styles.overlay}
+      className={cn(
+        styles.overlay,
+        open
+          ? 'opacity-100'
+          : 'opacity-0 pointer-events-none'
+      )}
       onClick={(e) => {
         if (e.target === e.currentTarget) setOpen(false)
       }}
     >
-      <div className={cn(styles.content, className)}>
+      <div
+        className={cn(
+          styles.content,
+          open ? 'scale-100' : 'scale-95',
+          className
+        )}
+      >
         {title && <h2 className={styles.title}>{title}</h2>}
         {children}
       </div>

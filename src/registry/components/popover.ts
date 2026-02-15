@@ -9,7 +9,8 @@ const styles = {
   content: cn(
     'absolute z-50 min-w-[200px] p-4',
     'bg-card border border-border rounded-[12px]',
-    'shadow-lg'
+    'shadow-lg',
+    'transition-[opacity,scale] duration-150 ease-out'
   ),
   positions: {
     top: 'bottom-full mb-2 left-1/2 -translate-x-1/2',
@@ -91,12 +92,14 @@ function Content({
   className?: string
 }) {
   const { open, position } = usePopover()
-  if (!open) return null
   return (
     <div
       className={cn(
         styles.content,
         styles.positions[position],
+        open
+          ? 'opacity-100 scale-100'
+          : 'opacity-0 scale-95 pointer-events-none',
         className
       )}
     >

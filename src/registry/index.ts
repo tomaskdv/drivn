@@ -1,3 +1,4 @@
+import { globals } from './globals.js'
 import { accordion } from './components/accordion.js'
 import { alert } from './components/alert.js'
 import { avatar } from './components/avatar.js'
@@ -17,6 +18,8 @@ import { tabs } from './components/tabs.js'
 import { textarea } from './components/textarea.js'
 import { toast } from './components/toast.js'
 import { tooltip } from './components/tooltip.js'
+
+export { globals }
 
 export interface RegistryEntry {
   name: string

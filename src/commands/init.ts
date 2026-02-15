@@ -4,6 +4,7 @@ import { join } from 'path'
 import { execSync } from 'child_process'
 import { detectFramework, FRAMEWORK_NAMES } from '../utils/framework.js'
 import { saveConfig, writeFile, fileExists } from '../utils/config.js'
+import { globals } from '../registry/globals.js'
 
 const CN_UTIL = `import { type ClassValue, clsx } from 'clsx'
 import { twMerge } from 'tailwind-merge'
@@ -12,6 +13,20 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
 `
+
+const GLOBALS_CANDIDATES = [
+  'src/app/globals.css',
+  'src/styles/globals.css',
+  'src/styles/globals.scss',
+  'app/globals.css',
+]
+
+function detectGlobalsPath(cwd: string): string | null {
+  for (const candidate of GLOBALS_CANDIDATES) {
+    if (fileExists(join(cwd, candidate))) return candidate
+  }
+  return null
+}
 
 export async function init() {
   const cwd = process.cwd()
@@ -78,11 +93,9 @@ export async function init() {
     paths: {
       components: paths.components,
       utils: paths.utils,
-    },
+    } as { components: string; utils: string; globals?: string },
     installed: [] as string[],
   }
-
-  saveConfig(cwd, config)
 
   const ext = projectInfo.typescript ? 'ts' : 'js'
   const cnPath = join(cwd, paths.utils, `cn.${ext}`)
@@ -90,6 +103,40 @@ export async function init() {
   if (!fileExists(cnPath)) {
     writeFile(cnPath, CN_UTIL)
   }
+
+  // Generate globals.css with theme tokens
+  const existingGlobals = detectGlobalsPath(cwd)
+
+  if (existingGlobals) {
+    const addTokens = await p.confirm({
+      message: `Found ${pc.cyan(existingGlobals)}. Add Drivn theme tokens?`,
+      initialValue: true,
+    })
+
+    if (!p.isCancel(addTokens) && addTokens) {
+      writeFile(join(cwd, existingGlobals), globals)
+      config.paths.globals = existingGlobals
+      p.log.success(`Theme tokens written to ${pc.cyan(existingGlobals)}`)
+    }
+  } else {
+    const defaultGlobals = projectInfo.srcDir
+      ? 'src/styles/globals.css'
+      : 'styles/globals.css'
+
+    const globalsPath = await p.text({
+      message: 'Where should the globals CSS file be created?',
+      placeholder: defaultGlobals,
+      defaultValue: defaultGlobals,
+    })
+
+    if (!p.isCancel(globalsPath)) {
+      writeFile(join(cwd, globalsPath), globals)
+      config.paths.globals = globalsPath
+      p.log.success(`Theme tokens written to ${pc.cyan(globalsPath)}`)
+    }
+  }
+
+  saveConfig(cwd, config)
 
   const s = p.spinner()
   s.start('Installing dependencies')
