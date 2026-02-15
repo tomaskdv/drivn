@@ -4,7 +4,7 @@ import * as React from 'react'
 import { cn } from '@/utils/cn'
 
 const styles = {
-  list: 'flex w-fit bg-accent rounded-[10px] p-1',
+  list: 'flex w-fit bg-accent border border-border rounded-[10px] p-1',
   tab: cn(
     'px-4 py-2 text-sm font-medium rounded-lg',
     'transition-colors cursor-pointer'

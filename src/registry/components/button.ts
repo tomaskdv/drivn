@@ -15,7 +15,7 @@ const styles = {
     lg: 'h-12 px-6 text-base gap-2',
   },
   variants: {
-    default: 'bg-foreground text-background hover:bg-foreground/90',
+    default: 'bg-foreground text-background hover:scale-[1.02]',
     secondary: cn(
       'bg-card text-foreground border border-border',
       'hover:bg-accent hover:border-border'

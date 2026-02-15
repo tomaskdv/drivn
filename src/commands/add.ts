@@ -69,17 +69,9 @@ export async function add(componentNames: string[]) {
   )
 
   if (extraDeps.length) {
-    p.log.info(`Required dependencies: ${extraDeps.join(', ')}`)
-
-    const proceed = await p.confirm({
-      message: 'Install with dependencies?',
-      initialValue: true,
-    })
-
-    if (p.isCancel(proceed) || !proceed) {
-      p.cancel('Cancelled')
-      process.exit(0)
-    }
+    p.log.info(
+      `Required dependency: ${extraDeps.join(', ')}`
+    )
   }
 
   const ext = config.typescript ? 'tsx' : 'jsx'
@@ -107,7 +99,9 @@ export async function add(componentNames: string[]) {
     )
 
     writeFile(filePath, content)
-    p.log.success(name)
+    p.log.success(
+      `${name} → ${config.paths.components}/${name}.${ext}`
+    )
   }
 
   if (npmDeps.size) {
@@ -126,5 +120,5 @@ export async function add(componentNames: string[]) {
     }
   }
 
-  p.outro('Done')
+  p.outro('Done.')
 }

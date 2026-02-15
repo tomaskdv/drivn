@@ -74,13 +74,13 @@ export const registry: RegistryEntry[] = [
   {
     name: 'dialog',
     description: 'Modal dialog with dot notation, overlay, and escape key',
-    dependencies: [],
+    dependencies: ['button'],
     npmDependencies: [],
   },
   {
     name: 'dropdown',
     description: 'Dropdown menu with dot notation, groups, separators, and click-outside',
-    dependencies: [],
+    dependencies: ['button'],
     npmDependencies: [],
   },
   {
@@ -92,7 +92,7 @@ export const registry: RegistryEntry[] = [
   {
     name: 'popover',
     description: 'Floating content panel with dot notation and click-outside',
-    dependencies: [],
+    dependencies: ['button'],
     npmDependencies: [],
   },
   {
