@@ -3,11 +3,9 @@
     <img src="https://raw.githubusercontent.com/tomaskdv/drivn/main/.github/assets/logo.svg" width="60" height="60" alt="Drivn" />
   </a>
 </p>
-
-<h1 align="center">Drivn</h1>
-
+<h1 align="center"><ins>Drivn</ins></h1>
+<h3 align="center">Write less. Build more.</h3>
 <p align="center">
-  <strong>Write less. Build more.</strong><br/>
   React + Tailwind components with zero runtime deps. Dot notation API. Copied into your codebase.
 </p>
 
@@ -18,15 +16,6 @@
   <a href="https://www.npmjs.com/package/drivn"><img src="https://img.shields.io/npm/dm/drivn?style=flat-square&color=171717&labelColor=171717" alt="downloads" /></a>&nbsp;
   <a href="https://github.com/tomaskdv/drivn/blob/main/LICENSE.md"><img src="https://img.shields.io/npm/l/drivn?style=flat-square&color=171717&labelColor=171717" alt="license" /></a>&nbsp;
   <a href="https://github.com/tomaskdv/drivn"><img src="https://img.shields.io/github/stars/tomaskdv/drivn?style=flat-square&color=171717&labelColor=171717" alt="stars" /></a>
-</p>
-
-<br/>
-
-<p align="center">
-  <a href="https://drivn.com"><b>Docs</b></a>&nbsp;&nbsp;&nbsp;
-  <a href="#quick-start">Quick Start</a>&nbsp;&nbsp;&nbsp;
-  <a href="#components">Components</a>&nbsp;&nbsp;&nbsp;
-  <a href="https://github.com/tomaskdv/drivn">GitHub</a>
 </p>
 
 <br/>
@@ -57,13 +46,19 @@ npx drivn add button
 
 > Components are copied into your codebase. No node_modules magic — they're yours.
 
+Or browse all components interactively:
+
+```sh
+npx drivn add
+```
+
+> Opens a multi-select prompt — pick exactly the components you need.
+
 ---
 
 ## Why Drivn
 
 Most component libraries ask you to learn their abstractions, install their runtime, and work around their opinions. Drivn takes the opposite approach — every component is plain React and Tailwind, copied straight into your project. No wrappers. No lock-in. Nothing between you and the code.
-
-You get components that read like you wrote them, because after install, they're yours.
 
 | | What you get |
 |---|---|
@@ -80,15 +75,16 @@ You get components that read like you wrote them, because after install, they're
 
 ```tsx
 import { Dialog } from '@/components/ui/dialog'
+import { Button } from '@/components/ui/button'
 
-function Example() {
+export function ConfirmDialog() {
   return (
     <Dialog>
       <Dialog.Trigger>
         <Button>Open Dialog</Button>
       </Dialog.Trigger>
       <Dialog.Content title="Confirm action">
-        <p>Are you sure you want to continue?</p>
+        Are you sure you want to continue?
         <Dialog.Footer>
           <Button variant="outline">Cancel</Button>
           <Button>Confirm</Button>
@@ -112,11 +108,6 @@ function Example() {
 | **Overlay** | Dialog, Dropdown, Popover, Tooltip, Toast |
 | **Feedback** | Alert, Avatar, Badge, Progress |
 | **Theming** | Theme Provider (dark/light mode) |
-
-```sh
-# Browse all components interactively
-npx drivn add
-```
 
 ---
 
