@@ -1,7 +1,9 @@
-<a align="center" href="https://drivn.com">
-  <img src="https://raw.githubusercontent.com/tomaskdv/drivn/main/.github/assets/logo.svg" width="60" height="60" alt="Drivn" />
-</a>
-<h1 align="center"><ins>Drivn</ins></h1>
+<p align="center">
+  <a href="https://drivn.com">
+    <img src="https://raw.githubusercontent.com/tomaskdv/drivn/main/.github/assets/logo.svg" width="60" height="60" alt="Drivn" />
+  </a>
+</p>
+<p align="center"><strong>Drivn</strong></p>
 <h3 align="center">Write less. Build more.</h3>
 <p align="center">
   Components with dot notation, smart dependencies, and zero verbosity. Ship faster with cleaner code.
@@ -23,8 +25,6 @@
     <img src="https://raw.githubusercontent.com/tomaskdv/drivn/main/.github/assets/drivn.png" alt="Drivn — Write less. Build more." width="100%" />
   </a>
 </p>
-
----
 
 ## Quick Start
 
@@ -64,7 +64,6 @@ Most component libraries ask you to learn their abstractions, install their runt
 | **Dot Notation API** | `Dialog.Content`, not `DialogContent`. One import, clean API, fully typed. |
 | **`const styles`** | All classes in a styles object. Opens clean, reads clean, diffs clean. |
 | **Type-Safe Variants** | `keyof typeof styles.variants` gives autocomplete. No magic strings. |
-| **Icon as Component** | `leftIcon={Plus}` not `leftIcon={<Plus />}`. Zero boilerplate. |
 | **Copy & Own** | Every component lives in your codebase. Full control after install. |
 
 ---
@@ -93,17 +92,6 @@ export function ConfirmDialog() {
 }
 ```
 
-<p align="center">
-  <b>Requirements</b><br/>
-  React 18+ · Tailwind CSS v4 · TypeScript recommended
-</p>
+## License
 
-<p align="center">
-  <a href="https://drivn.com/docs"><b>Docs</b></a> ·
-  <a href="https://github.com/tomaskdv/drivn"><b>GitHub</b></a> ·
-  <a href="https://www.npmjs.com/package/drivn"><b>npm</b></a>
-</p>
-
-<p align="center">
-  <sub>MIT License</sub>
-</p>
+Licensed under the [MIT License](./LICENSE.md).
