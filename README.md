@@ -1,12 +1,10 @@
-<p align="center">
-  <a href="https://drivn.com">
-    <img src="https://raw.githubusercontent.com/tomaskdv/drivn/main/.github/assets/logo.svg" width="60" height="60" alt="Drivn" />
-  </a>
-</p>
+<a align="center" href="https://drivn.com">
+  <img src="https://raw.githubusercontent.com/tomaskdv/drivn/main/.github/assets/logo.svg" width="60" height="60" alt="Drivn" />
+</a>
 <h1 align="center"><ins>Drivn</ins></h1>
 <h3 align="center">Write less. Build more.</h3>
 <p align="center">
-  React + Tailwind components with zero runtime deps. Dot notation API. Copied into your codebase.
+  Components with dot notation, smart dependencies, and zero verbosity. Ship faster with cleaner code.
 </p>
 
 <br/>
@@ -22,7 +20,7 @@
 
 <p align="center">
   <a href="https://drivn.com">
-    <img src="https://raw.githubusercontent.com/tomaskdv/drivn/main/.github/assets/drivn.png" alt="Drivn — React + Tailwind component library" width="100%" />
+    <img src="https://raw.githubusercontent.com/tomaskdv/drivn/main/.github/assets/drivn.png" alt="Drivn — Write less. Build more." width="100%" />
   </a>
 </p>
 
@@ -95,29 +93,13 @@ export function ConfirmDialog() {
 }
 ```
 
----
-
-## Components
-
-**20 production-ready components**, all zero-dependency:
-
-| Category | Components |
-|---|---|
-| **Form** | Button, Input, Textarea, Select, Checkbox, Switch |
-| **Layout** | Card, Accordion, Tabs, Separator |
-| **Overlay** | Dialog, Dropdown, Popover, Tooltip, Toast |
-| **Feedback** | Alert, Avatar, Badge, Progress |
-| **Theming** | Theme Provider (dark/light mode) |
-
----
-
 <p align="center">
   <b>Requirements</b><br/>
   React 18+ · Tailwind CSS v4 · TypeScript recommended
 </p>
 
 <p align="center">
-  <a href="https://drivn.com"><b>Docs</b></a> ·
+  <a href="https://drivn.com/docs"><b>Docs</b></a> ·
   <a href="https://github.com/tomaskdv/drivn"><b>GitHub</b></a> ·
   <a href="https://www.npmjs.com/package/drivn"><b>npm</b></a>
 </p>
