@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://drivn.com">
-    <img src="https://raw.githubusercontent.com/tomaskdv/drivn/main/public/logo.svg" width="60" height="60" alt="Drivn" />
+    <img src="https://raw.githubusercontent.com/tomaskdv/drivn/main/.github/assets/logo.svg" width="60" height="60" alt="Drivn" />
   </a>
 </p>
 
@@ -132,5 +132,5 @@ npx drivn add
 </p>
 
 <p align="center">
-  <sub>MIT License · Made with care</sub>
+  <sub>MIT License</sub>
 </p>
