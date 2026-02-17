@@ -23,11 +23,11 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/drivnui/drivn"
+    "url": "https://github.com/tomaskdv/drivn"
   },
   "homepage": "https://drivn.dev",
   "bugs": {
-    "url": "https://github.com/drivnui/drivn/issues"
+    "url": "https://github.com/tomaskdv/drivn/issues"
   },
   "publishConfig": {
     "access": "public"
