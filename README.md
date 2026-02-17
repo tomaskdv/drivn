@@ -3,7 +3,7 @@
     <img src="https://raw.githubusercontent.com/tomaskdv/drivn/main/.github/assets/logo.svg" width="60" height="60" alt="Drivn" />
   </a>
 </p>
-<p align="center"><strong>Drivn</strong></p>
+<h1 align="center">Drivn</h1>
 <h3 align="center">Write less. Build more.</h3>
 <p align="center">
   Components with dot notation, smart dependencies, and zero verbosity. Ship faster with cleaner code.
