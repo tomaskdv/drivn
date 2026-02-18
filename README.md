@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://drivn.com">
+  <a href="https://drivnui.com">
     <img src="https://raw.githubusercontent.com/tomaskdv/drivn/main/.github/assets/logo.svg" width="60" height="60" alt="Drivn" />
   </a>
 </p>
@@ -21,7 +21,7 @@
 <br/>
 
 <p align="center">
-  <a href="https://drivn.com">
+  <a href="https://drivnui.com">
     <img src="https://raw.githubusercontent.com/tomaskdv/drivn/main/.github/assets/drivn.png" alt="Drivn — Write less. Build more." width="100%" />
   </a>
 </p>
