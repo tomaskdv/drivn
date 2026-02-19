@@ -7,7 +7,8 @@ const styles = {
     'absolute z-50 px-2.5 py-1.5 text-xs font-medium',
     'rounded-lg bg-foreground text-background',
     'whitespace-nowrap pointer-events-none',
-    'opacity-0 group-hover:opacity-100 transition-opacity'
+    'opacity-0 group-hover:opacity-100',
+    'group-focus-within:opacity-100 transition-opacity'
   ),
   positions: {
     top: 'bottom-full left-1/2 -translate-x-1/2 mb-2',
@@ -31,7 +32,10 @@ export function Tooltip({
   children,
 }: TooltipProps) {
   return (
-    <span className={cn(styles.base, className)}>
+    <span
+      tabIndex={0}
+      className={cn(styles.base, 'outline-none', className)}
+    >
       {children}
       <span className={cn(styles.tip, styles.positions[position])}>
         {content}
