@@ -4,6 +4,11 @@ import { join } from 'path'
 import { execSync } from 'child_process'
 import { detectFramework, FRAMEWORK_NAMES } from '../utils/framework.js'
 import { saveConfig, writeFile, fileExists } from '../utils/config.js'
+import {
+  detectPackageManager,
+  getInstallCommand,
+  getRunnerPrefix,
+} from '../utils/package-manager.js'
 import { globalsBase } from '../registry/globals.js'
 
 const CN_UTIL = `import { type ClassValue, clsx } from 'clsx'
@@ -138,22 +143,26 @@ export async function init() {
 
   saveConfig(cwd, config)
 
+  const pm = detectPackageManager(cwd)
+  const prefix = getRunnerPrefix(pm)
+  const coreDeps = ['clsx', 'tailwind-merge', 'lucide-react']
+
   const s = p.spinner()
   s.start('Installing dependencies')
 
   try {
-    execSync('npm install clsx tailwind-merge lucide-react', {
+    execSync(getInstallCommand(pm, coreDeps), {
       cwd,
       stdio: 'ignore',
     })
     s.stop('Dependencies installed')
   } catch {
     s.stop('Failed to install dependencies')
-    p.log.warn('Run manually: npm install clsx tailwind-merge lucide-react')
+    p.log.warn(`Run manually: ${getInstallCommand(pm, coreDeps)}`)
   }
 
-  p.log.info(`Add components with: ${pc.cyan('npx drivn add button')}`)
-  p.log.info(`Add dark/light theme: ${pc.cyan('npx drivn add theme')}`)
+  p.log.info(`Add components with: ${pc.cyan(`${prefix} drivn add button`)}`)
+  p.log.info(`Add dark/light theme: ${pc.cyan(`${prefix} drivn add theme`)}`)
 
   p.outro('Drivn initialized')
 }

@@ -9,6 +9,10 @@ import {
   fileExists,
 } from '../utils/config.js'
 import { registry, components, themeTokens } from '../registry/index.js'
+import {
+  detectPackageManager,
+  getInstallCommand,
+} from '../utils/package-manager.js'
 
 export async function add(componentNames: string[]) {
   const cwd = process.cwd()
@@ -201,18 +205,20 @@ export async function add(componentNames: string[]) {
 
   // Install npm dependencies
   if (npmDeps.size) {
+    const pm = detectPackageManager(cwd)
+    const deps = [...npmDeps]
     const s = p.spinner()
     s.start('Installing packages')
 
     try {
-      execSync(`npm install ${[...npmDeps].join(' ')}`, {
+      execSync(getInstallCommand(pm, deps), {
         cwd,
         stdio: 'ignore',
       })
       s.stop('Packages installed')
     } catch {
       s.stop('Failed to install packages')
-      p.log.warn(`Run manually: npm install ${[...npmDeps].join(' ')}`)
+      p.log.warn(`Run manually: ${getInstallCommand(pm, deps)}`)
     }
   }
 
