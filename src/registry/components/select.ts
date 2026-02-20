@@ -150,6 +150,6 @@ function useSelect() {
 export const Select = Object.assign(SelectRoot, {
   Trigger,
   Menu,
-  Option,
+  Option
 })
 `

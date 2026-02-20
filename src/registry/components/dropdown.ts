@@ -194,6 +194,6 @@ export const Dropdown = Object.assign(DropdownRoot, {
   Item,
   Group,
   Label,
-  Separator: DropdownSeparator,
+  Separator: DropdownSeparator
 })
 `

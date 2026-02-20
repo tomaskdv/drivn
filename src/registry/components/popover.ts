@@ -101,6 +101,6 @@ function usePopover() {
 
 export const Popover = Object.assign(PopoverRoot, {
   Trigger,
-  Content,
+  Content
 })
 `

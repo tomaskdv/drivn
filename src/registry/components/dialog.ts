@@ -155,6 +155,6 @@ function useDialog() {
 export const Dialog = Object.assign(DialogRoot, {
   Trigger,
   Content,
-  Close,
+  Close
 })
 `

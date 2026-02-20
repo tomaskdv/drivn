@@ -110,6 +110,6 @@ function useTabs() {
 export const Tabs = Object.assign(TabsRoot, {
   List,
   Tab,
-  Panel,
+  Panel
 })
 `

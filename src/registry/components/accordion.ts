@@ -126,6 +126,8 @@ function useCtx() {
 }
 
 export const Accordion = Object.assign(AccordionRoot, {
-  Item, Trigger, Content,
+  Item,
+  Trigger,
+  Content
 })
 `

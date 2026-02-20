@@ -63,6 +63,6 @@ function Info({
 
 export const Card = Object.assign(CardRoot, {
   Preview,
-  Info,
+  Info
 })
 `
