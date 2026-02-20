@@ -85,16 +85,7 @@ function Content({
 }) {
   const { open, position } = usePopover()
   return (
-    <div
-      className={cn(
-        styles.content,
-        styles.positions[position],
-        open
-          ? 'opacity-100 scale-100'
-          : 'opacity-0 scale-95 pointer-events-none',
-        className
-      )}
-    >
+    <div className={cn(styles.content, styles.positions[position], open ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none', className)}>
       {children}
     </div>
   )

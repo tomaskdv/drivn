@@ -28,9 +28,7 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(({
   disabled,
   ...props
 }, ref) => {
-    const [internal, setInternal] = React.useState(
-      defaultChecked ?? false
-    )
+    const [internal, setInternal] = React.useState(defaultChecked ?? false)
     const isControlled = checked !== undefined
     const isChecked = isControlled ? checked : internal
 
