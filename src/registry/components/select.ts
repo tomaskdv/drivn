@@ -37,14 +37,6 @@ interface SelectCtx {
   onSelect: (v: string) => void
 }
 
-const Ctx = React.createContext<SelectCtx | null>(null)
-
-function useSelect() {
-  const ctx = React.useContext(Ctx)
-  if (!ctx) throw new Error('Select compound used outside <Select>')
-  return ctx
-}
-
 function SelectRoot({
   children,
   value,
@@ -153,6 +145,14 @@ function Option({
       {children}
     </button>
   )
+}
+
+const Ctx = React.createContext<SelectCtx | null>(null)
+
+function useSelect() {
+  const ctx = React.useContext(Ctx)
+  if (!ctx) throw new Error('Select compound used outside <Select>')
+  return ctx
 }
 
 export const Select = Object.assign(SelectRoot, {

@@ -18,14 +18,6 @@ interface TabsCtx {
   setValue: (v: string) => void
 }
 
-const Ctx = React.createContext<TabsCtx | null>(null)
-
-function useTabs() {
-  const ctx = React.useContext(Ctx)
-  if (!ctx) throw new Error('Tabs compound used outside <Tabs>')
-  return ctx
-}
-
 function TabsRoot({
   children,
   defaultValue,
@@ -109,6 +101,14 @@ function Panel({
   const { value } = useTabs()
   if (value !== panelValue) return null
   return <div className={className}>{children}</div>
+}
+
+const Ctx = React.createContext<TabsCtx | null>(null)
+
+function useTabs() {
+  const ctx = React.useContext(Ctx)
+  if (!ctx) throw new Error('Tabs compound used outside <Tabs>')
+  return ctx
 }
 
 export const Tabs = Object.assign(TabsRoot, {

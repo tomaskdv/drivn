@@ -36,16 +36,6 @@ interface DropdownCtx {
   align: keyof typeof styles.align
 }
 
-const Ctx = React.createContext<DropdownCtx | null>(null)
-
-function useDropdown() {
-  const ctx = React.useContext(Ctx)
-  if (!ctx) throw new Error(
-    'Dropdown compound used outside <Dropdown>'
-  )
-  return ctx
-}
-
 function DropdownRoot({
   children,
   align = 'left',
@@ -125,9 +115,7 @@ function Content({
   )
 }
 
-type IconProp =
-  | React.ComponentType<{ className?: string }>
-  | React.ReactElement
+type IconProp = React.ComponentType<{ className?: string }> | React.ReactElement
 
 function Item({
   children,
@@ -201,6 +189,14 @@ function DropdownSeparator({
   return (
     <div className={cn(styles.separator, className)} />
   )
+}
+
+const Ctx = React.createContext<DropdownCtx | null>(null)
+
+function useDropdown() {
+  const ctx = React.useContext(Ctx)
+  if (!ctx) throw new Error('Dropdown compound used outside <Dropdown>')
+  return ctx
 }
 
 export const Dropdown = Object.assign(DropdownRoot, {

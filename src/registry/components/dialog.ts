@@ -31,14 +31,6 @@ interface DialogCtx {
   setOpen: (v: boolean) => void
 }
 
-const Ctx = React.createContext<DialogCtx | null>(null)
-
-function useDialog() {
-  const ctx = React.useContext(Ctx)
-  if (!ctx) throw new Error('Dialog compound used outside <Dialog>')
-  return ctx
-}
-
 function DialogRoot({
   children,
   open: controlled,
@@ -140,6 +132,14 @@ function Close({ className }: { className?: string }) {
       <X className="w-3.5 h-3.5" />
     </button>
   )
+}
+
+const Ctx = React.createContext<DialogCtx | null>(null)
+
+function useDialog() {
+  const ctx = React.useContext(Ctx)
+  if (!ctx) throw new Error('Dialog compound used outside <Dialog>')
+  return ctx
 }
 
 export const Dialog = Object.assign(DialogRoot, {

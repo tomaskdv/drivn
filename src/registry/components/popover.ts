@@ -26,14 +26,6 @@ interface PopoverCtx {
   position: keyof typeof styles.positions
 }
 
-const Ctx = React.createContext<PopoverCtx | null>(null)
-
-function usePopover() {
-  const ctx = React.useContext(Ctx)
-  if (!ctx) throw new Error('Popover compound used outside <Popover>')
-  return ctx
-}
-
 function PopoverRoot({
   children,
   position = 'bottom',
@@ -106,6 +98,14 @@ function Content({
       {children}
     </div>
   )
+}
+
+const Ctx = React.createContext<PopoverCtx | null>(null)
+
+function usePopover() {
+  const ctx = React.useContext(Ctx)
+  if (!ctx) throw new Error('Popover compound used outside <Popover>')
+  return ctx
 }
 
 export const Popover = Object.assign(PopoverRoot, {
