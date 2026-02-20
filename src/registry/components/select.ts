@@ -81,16 +81,18 @@ function Trigger({
   placeholder = 'Select...',
   children,
   className,
+  ...props
 }: {
   placeholder?: string
   children?: React.ReactNode
   className?: string
-}) {
+} & Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'onClick'>) {
   const { open, setOpen } = useSelect()
   return (
     <button
       className={cn(styles.trigger, className)}
       onClick={() => setOpen(!open)}
+      {...props}
     >
       <span className={!children ? styles.placeholder : undefined}>
         {children ?? placeholder}
@@ -109,15 +111,7 @@ function Menu({
 }) {
   const { open } = useSelect()
   return (
-    <div
-      className={cn(
-        styles.menu,
-        open
-          ? 'opacity-100 scale-100'
-          : 'opacity-0 scale-95 pointer-events-none',
-        className
-      )}
-    >
+    <div className={cn(styles.menu, open ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none', className)}>
       {children}
     </div>
   )
@@ -127,20 +121,18 @@ function Option({
   value: optValue,
   children,
   className,
+  ...props
 }: {
   value: string
   children: React.ReactNode
   className?: string
-}) {
+} & Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'onClick'>) {
   const { value, onSelect } = useSelect()
   return (
     <button
-      className={cn(
-        styles.option,
-        optValue === value && styles.selected,
-        className
-      )}
+      className={cn(styles.option, optValue === value && styles.selected, className)}
       onClick={() => onSelect(optValue)}
+      {...props}
     >
       {children}
     </button>

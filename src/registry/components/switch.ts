@@ -15,27 +15,25 @@ const styles = {
   ),
 }
 
-interface SwitchProps {
+interface SwitchProps
+  extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'onChange'> {
   checked?: boolean
   onChange?: (checked: boolean) => void
-  className?: string
 }
 
 export function Switch({
   checked = false,
   onChange,
   className,
+  ...props
 }: SwitchProps) {
   return (
     <button
       role="switch"
       aria-checked={checked}
       onClick={() => onChange?.(!checked)}
-      className={cn(
-        styles.base,
-        checked ? 'bg-primary' : 'bg-border',
-        className
-      )}
+      className={cn(styles.base, checked ? 'bg-primary' : 'bg-border', className)}
+      {...props}
     >
       <span className={cn(styles.thumb, checked ? 'translate-x-[25px]' : 'translate-x-[3px]')} />
     </button>

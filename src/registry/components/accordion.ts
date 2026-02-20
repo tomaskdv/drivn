@@ -29,16 +29,13 @@ function AccordionRoot({
   defaultValue,
   multiple,
   className,
-  ...props
 }: {
   children: React.ReactNode
   defaultValue?: string | string[]
   multiple?: boolean
   className?: string
-} & React.HTMLAttributes<HTMLDivElement>) {
-  const [open, setOpen] = React.useState(
-    () => new Set([defaultValue ?? []].flat())
-  )
+}) {
+  const [open, setOpen] = React.useState(() => new Set([defaultValue ?? []].flat()))
 
   const toggle = (v: string) =>
     setOpen((prev) => {
@@ -49,7 +46,7 @@ function AccordionRoot({
 
   return (
     <Ctx.Provider value={{ open, toggle }}>
-      <div className={cn(styles.base, className)} {...props}>
+      <div className={cn(styles.base, className)}>
         {children}
       </div>
     </Ctx.Provider>
@@ -60,15 +57,14 @@ function Item({
   value,
   children,
   className,
-  ...props
 }: {
   value: string
   children: React.ReactNode
   className?: string
-} & React.HTMLAttributes<HTMLDivElement>) {
+}) {
   return (
     <ItemCtx.Provider value={value}>
-      <div className={className} {...props}>{children}</div>
+      <div className={className}>{children}</div>
     </ItemCtx.Provider>
   )
 }
@@ -100,11 +96,10 @@ function Trigger({
 function Content({
   children,
   className,
-  ...props
 }: {
   children: React.ReactNode
   className?: string
-} & React.HTMLAttributes<HTMLDivElement>) {
+}) {
   const { open } = useCtx()
   const value = React.useContext(ItemCtx)
   const isOpen = open.has(value)
@@ -113,7 +108,6 @@ function Content({
       role="region"
       className={styles.panel}
       style={{ gridTemplateRows: isOpen ? '1fr' : '0fr' }}
-      {...props}
     >
       <div className={cn(styles.content, className)}>
         <div className="pb-4">{children}</div>

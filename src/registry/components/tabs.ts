@@ -31,9 +31,7 @@ function TabsRoot({
   onChange?: (value: string) => void
   className?: string
 }) {
-  const [uncontrolled, setUncontrolled] = React.useState(
-    defaultValue ?? ''
-  )
+  const [uncontrolled, setUncontrolled] = React.useState(defaultValue ?? '')
   const value = controlled ?? uncontrolled
   const setValue = React.useCallback(
     (v: string) => {
@@ -68,21 +66,19 @@ function Tab({
   value: tabValue,
   children,
   className,
+  ...props
 }: {
   value: string
   children: React.ReactNode
   className?: string
-}) {
+} & Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'onClick'>) {
   const { value, setValue } = useTabs()
   const isActive = value === tabValue
   return (
     <button
-      className={cn(
-        styles.tab,
-        isActive ? styles.active : styles.inactive,
-        className
-      )}
+      className={cn(styles.tab, isActive ? styles.active : styles.inactive, className)}
       onClick={() => setValue(tabValue)}
+      {...props}
     >
       {children}
     </button>

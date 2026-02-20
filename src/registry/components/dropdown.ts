@@ -36,6 +36,8 @@ interface DropdownCtx {
   align: keyof typeof styles.align
 }
 
+type IconProp = React.ComponentType<{ className?: string }> | React.ReactElement
+
 function DropdownRoot({
   children,
   align = 'left',
@@ -100,22 +102,11 @@ function Content({
 }) {
   const { open, align } = useDropdown()
   return (
-    <div
-      className={cn(
-        styles.content,
-        styles.align[align],
-        open
-          ? 'opacity-100 scale-100'
-          : 'opacity-0 scale-95 pointer-events-none',
-        className
-      )}
-    >
+    <div className={cn(styles.content, styles.align[align], open ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none', className)}>
       {children}
     </div>
   )
 }
-
-type IconProp = React.ComponentType<{ className?: string }> | React.ReactElement
 
 function Item({
   children,
@@ -123,25 +114,23 @@ function Item({
   icon: Icon,
   destructive,
   className,
+  ...props
 }: {
   children: React.ReactNode
   onClick?: () => void
   icon?: IconProp
   destructive?: boolean
   className?: string
-}) {
+} & Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'onClick'>) {
   const { setOpen } = useDropdown()
   return (
     <button
-      className={cn(
-        styles.item,
-        destructive && styles.destructive,
-        className
-      )}
+      className={cn(styles.item, destructive && styles.destructive, className)}
       onClick={() => {
         onClick?.()
         setOpen(false)
       }}
+      {...props}
     >
       {Icon && (
         React.isValidElement(Icon)
