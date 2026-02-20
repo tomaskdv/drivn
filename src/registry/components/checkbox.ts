@@ -15,28 +15,19 @@ const styles = {
   label: 'text-sm text-foreground select-none',
 }
 
-interface CheckboxProps
-  extends Omit<
-    React.InputHTMLAttributes<HTMLInputElement>,
-    'type'
-  > {
+interface CheckboxProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'type'> {
   label?: string
 }
 
-export const Checkbox = React.forwardRef<
-  HTMLInputElement,
-  CheckboxProps
->(({
-      className,
-      label,
-      checked,
-      defaultChecked,
-      onChange,
-      disabled,
-      ...props
-    },
-    ref
-  ) => {
+export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(({
+    className,
+    label,
+    checked,
+    defaultChecked,
+    onChange,
+    disabled,
+    ...props
+  }, ref) => {
     const [internal, setInternal] = React.useState(
       defaultChecked ?? false
     )
@@ -44,13 +35,7 @@ export const Checkbox = React.forwardRef<
     const isChecked = isControlled ? checked : internal
 
     return (
-      <label
-        className={cn(
-          styles.base,
-          disabled && 'opacity-50 cursor-default',
-          className
-        )}
-      >
+      <label className={cn(styles.base, disabled && 'opacity-50 cursor-default', className)}>
         <input
           ref={ref}
           type="checkbox"
@@ -64,12 +49,7 @@ export const Checkbox = React.forwardRef<
           }}
           {...props}
         />
-        <span
-          className={cn(
-            styles.box,
-            isChecked && styles.checked
-          )}
-        >
+        <span className={cn(styles.box, isChecked && styles.checked)}>
           {isChecked && (
             <Check className="w-2.5 h-2.5 text-primary-foreground" />
           )}

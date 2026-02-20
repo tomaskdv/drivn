@@ -37,14 +37,7 @@ export function Switch({
         className
       )}
     >
-      <span
-        className={cn(
-          styles.thumb,
-          checked
-            ? 'translate-x-[25px]'
-            : 'translate-x-[3px]'
-        )}
-      />
+      <span className={cn(styles.thumb, checked ? 'translate-x-[25px]' : 'translate-x-[3px]')} />
     </button>
   )
 }

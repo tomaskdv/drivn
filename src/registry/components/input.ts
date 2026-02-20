@@ -12,8 +12,10 @@ const styles = {
 
 type InputProps = React.InputHTMLAttributes<HTMLInputElement>
 
-export const Input = React.forwardRef<HTMLInputElement, InputProps>(
-  ({ className, ...props }, ref) => (
+export const Input = React.forwardRef<HTMLInputElement, InputProps>(({
+    className,
+    ...props
+  }, ref) => (
     <input ref={ref} className={cn(styles.base, className)} {...props} />
   )
 )

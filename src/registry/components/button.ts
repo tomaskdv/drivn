@@ -29,9 +29,7 @@ const styles = {
   },
 }
 
-type IconProp =
-  | React.ComponentType<{ className?: string }>
-  | React.ReactElement
+type IconProp = React.ComponentType<{ className?: string }> | React.ReactElement
 
 interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -43,23 +41,18 @@ interface ButtonProps
   rightIcon?: IconProp
 }
 
-export const Button = React.forwardRef<
-  HTMLButtonElement,
-  ButtonProps
->(({
-      className,
-      variant = 'default',
-      size = 'md',
-      rounded = 'full',
-      loading,
-      disabled,
-      leftIcon: LeftIcon,
-      rightIcon: RightIcon,
-      children,
-      ...props
-    },
-    ref
-  ) => (
+export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(({
+    className,
+    variant = 'default',
+    size = 'md',
+    rounded = 'full',
+    loading,
+    disabled,
+    leftIcon: LeftIcon,
+    rightIcon: RightIcon,
+    children,
+    ...props
+  }, ref) => (
     <button
       ref={ref}
       disabled={loading || disabled}

@@ -13,9 +13,7 @@ const styles = {
   description: 'text-sm opacity-90',
 }
 
-type IconProp =
-  | React.ComponentType<{ className?: string }>
-  | React.ReactElement
+type IconProp = React.ComponentType<{ className?: string }> | React.ReactElement
 
 interface AlertProps {
   variant?: keyof typeof styles.variants
