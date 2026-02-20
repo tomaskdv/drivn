@@ -14,9 +14,9 @@ const styles = {
 type TextareaProps = React.TextareaHTMLAttributes<HTMLTextAreaElement>
 
 export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(({
-    className,
-    ...props
-  }, ref) => (
+  className,
+  ...props
+}, ref) => (
   <textarea
     ref={ref}
     className={cn(styles.base, className)}

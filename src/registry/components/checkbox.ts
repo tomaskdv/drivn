@@ -20,14 +20,14 @@ interface CheckboxProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>
 }
 
 export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(({
-    className,
-    label,
-    checked,
-    defaultChecked,
-    onChange,
-    disabled,
-    ...props
-  }, ref) => {
+  className,
+  label,
+  checked,
+  defaultChecked,
+  onChange,
+  disabled,
+  ...props
+}, ref) => {
     const [internal, setInternal] = React.useState(
       defaultChecked ?? false
     )
