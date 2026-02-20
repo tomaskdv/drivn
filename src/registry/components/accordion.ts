@@ -20,48 +20,36 @@ const styles = {
 }
 
 interface AccordionCtx {
-  openItem: string | null
-  toggle: (value: string) => void
-}
-
-const Ctx = React.createContext<AccordionCtx | null>(null)
-const ItemCtx = React.createContext<string | null>(null)
-
-function useAccordion() {
-  const ctx = React.useContext(Ctx)
-  if (!ctx) throw new Error('Accordion compound used outside <Accordion>')
-  return ctx
-}
-
-function useItemValue() {
-  const value = React.useContext(ItemCtx)
-  if (!value) throw new Error(
-    'Accordion sub-component used outside <Accordion.Item>'
-  )
-  return value
+  open: Set<string>
+  toggle: (v: string) => void
 }
 
 function AccordionRoot({
   children,
   defaultValue,
+  multiple,
   className,
+  ...props
 }: {
   children: React.ReactNode
-  defaultValue?: string
+  defaultValue?: string | string[]
+  multiple?: boolean
   className?: string
-}) {
-  const [openItem, setOpenItem] = React.useState<string | null>(
-    defaultValue ?? null
-  )
-  const toggle = React.useCallback(
-    (value: string) =>
-      setOpenItem((prev) => (prev === value ? null : value)),
-    []
+} & React.HTMLAttributes<HTMLDivElement>) {
+  const [open, setOpen] = React.useState(
+    () => new Set([defaultValue ?? []].flat())
   )
 
+  const toggle = (v: string) =>
+    setOpen((prev) => {
+      const next = new Set(multiple ? prev : [])
+      prev.has(v) ? next.delete(v) : next.add(v)
+      return next
+    })
+
   return (
-    <Ctx.Provider value={{ openItem, toggle }}>
-      <div className={cn(styles.base, className)}>
+    <Ctx.Provider value={{ open, toggle }}>
+      <div className={cn(styles.base, className)} {...props}>
         {children}
       </div>
     </Ctx.Provider>
@@ -72,14 +60,15 @@ function Item({
   value,
   children,
   className,
+  ...props
 }: {
   value: string
   children: React.ReactNode
   className?: string
-}) {
+} & React.HTMLAttributes<HTMLDivElement>) {
   return (
     <ItemCtx.Provider value={value}>
-      <div className={className}>{children}</div>
+      <div className={className} {...props}>{children}</div>
     </ItemCtx.Provider>
   )
 }
@@ -87,17 +76,20 @@ function Item({
 function Trigger({
   children,
   className,
+  ...props
 }: {
   children: React.ReactNode
   className?: string
-}) {
-  const { openItem, toggle } = useAccordion()
-  const value = useItemValue()
-  const isOpen = openItem === value
+} & React.ButtonHTMLAttributes<HTMLButtonElement>) {
+  const { open, toggle } = useCtx()
+  const value = React.useContext(ItemCtx)
+  const isOpen = open.has(value)
   return (
     <button
+      aria-expanded={isOpen}
       className={cn(styles.trigger, className)}
       onClick={() => toggle(value)}
+      {...props}
     >
       {children}
       <ChevronDown className={cn(styles.icon, isOpen && 'rotate-180')} />
@@ -108,17 +100,20 @@ function Trigger({
 function Content({
   children,
   className,
+  ...props
 }: {
   children: React.ReactNode
   className?: string
-}) {
-  const { openItem } = useAccordion()
-  const value = useItemValue()
-  const isOpen = openItem === value
+} & React.HTMLAttributes<HTMLDivElement>) {
+  const { open } = useCtx()
+  const value = React.useContext(ItemCtx)
+  const isOpen = open.has(value)
   return (
     <div
+      role="region"
       className={styles.panel}
       style={{ gridTemplateRows: isOpen ? '1fr' : '0fr' }}
+      {...props}
     >
       <div className={cn(styles.content, className)}>
         <div className="pb-4">{children}</div>
@@ -127,9 +122,16 @@ function Content({
   )
 }
 
+const Ctx = React.createContext<AccordionCtx | null>(null)
+const ItemCtx = React.createContext('')
+
+function useCtx() {
+  const c = React.useContext(Ctx)
+  if (!c) throw new Error('Accordion compound used outside <Accordion>')
+  return c
+}
+
 export const Accordion = Object.assign(AccordionRoot, {
-  Item,
-  Trigger,
-  Content,
+  Item, Trigger, Content,
 })
 `
