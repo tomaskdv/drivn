@@ -7,6 +7,7 @@ import { badge } from './components/badge.js'
 import { button } from './components/button.js'
 import { calendar } from './components/calendar.js'
 import { datePicker } from './components/date-picker.js'
+import { command } from './components/command.js'
 import { card } from './components/card.js'
 import { checkbox } from './components/checkbox.js'
 import { dialog } from './components/dialog.js'
@@ -86,6 +87,12 @@ export const registry: RegistryEntry[] = [
     description: 'Date picker input with Calendar dropdown for single date and range selection',
     dependencies: ['calendar'],
     npmDependencies: [],
+  },
+  {
+    name: 'command',
+    description: 'Searchable command menu with filtering, keyboard navigation, and dialog mode',
+    dependencies: ['dialog'],
+    npmDependencies: ['cmdk'],
   },
   {
     name: 'card',
@@ -187,6 +194,7 @@ export type ComponentName =
   | 'button'
   | 'calendar'
   | 'date-picker'
+  | 'command'
   | 'card'
   | 'checkbox'
   | 'dialog'
@@ -211,6 +219,7 @@ export const components: Record<ComponentName, string> = {
   button,
   calendar,
   'date-picker': datePicker,
+  command,
   card,
   checkbox,
   dialog,
