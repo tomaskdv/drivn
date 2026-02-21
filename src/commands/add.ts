@@ -8,7 +8,7 @@ import {
   readFile,
   fileExists,
 } from '../utils/config.js'
-import { registry, components, themeTokens } from '../registry/index.js'
+import { registry, components, themeTokens, calendarTokens } from '../registry/index.js'
 import {
   detectPackageManager,
   getInstallCommand,
@@ -201,6 +201,26 @@ export async function add(componentNames: string[]) {
     p.log.message(pc.cyan('     {children}'))
     p.log.message(pc.cyan('   </ThemeProvider>'))
     p.log.message('')
+  }
+
+  // Handle calendar globals
+  if (toInstall.has('calendar') && config.paths.globals) {
+    const globalsPath = join(cwd, config.paths.globals)
+
+    if (fileExists(globalsPath)) {
+      const existing = readFile(globalsPath)
+
+      if (existing.includes('.rdp-root')) {
+        p.log.warn(
+          'Calendar tokens already exist in globals — skipped'
+        )
+      } else {
+        writeFile(globalsPath, existing + calendarTokens)
+        p.log.success(
+          `Calendar tokens appended to ${pc.cyan(config.paths.globals)}`
+        )
+      }
+    }
   }
 
   // Install npm dependencies

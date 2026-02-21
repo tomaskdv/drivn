@@ -5,6 +5,7 @@ import { alert } from './components/alert.js'
 import { avatar } from './components/avatar.js'
 import { badge } from './components/badge.js'
 import { button } from './components/button.js'
+import { calendar } from './components/calendar.js'
 import { card } from './components/card.js'
 import { checkbox } from './components/checkbox.js'
 import { dialog } from './components/dialog.js'
@@ -21,6 +22,19 @@ import { toast } from './components/toast.js'
 import { tooltip } from './components/tooltip.js'
 
 export { globalsBase, themeTokens, themeProvider }
+
+export const calendarTokens = `
+/* react-day-picker theme integration */
+.rdp-root {
+  --rdp-accent-color: var(--primary);
+  --rdp-accent-background-color: var(--accent);
+  --rdp-day-height: 36px;
+  --rdp-day-width: 36px;
+  --rdp-selected-font: inherit;
+  --rdp-selected-border: none;
+  --rdp-day_button-border: none;
+}
+`
 
 export interface RegistryEntry {
   name: string
@@ -59,6 +73,12 @@ export const registry: RegistryEntry[] = [
     description: 'Button with variants, sizes, loading state, and icon slots',
     dependencies: [],
     npmDependencies: [],
+  },
+  {
+    name: 'calendar',
+    description: 'Date picker powered by react-day-picker with single, range, and dropdown modes',
+    dependencies: [],
+    npmDependencies: ['react-day-picker'],
   },
   {
     name: 'card',
@@ -158,6 +178,7 @@ export type ComponentName =
   | 'avatar'
   | 'badge'
   | 'button'
+  | 'calendar'
   | 'card'
   | 'checkbox'
   | 'dialog'
@@ -180,6 +201,7 @@ export const components: Record<ComponentName, string> = {
   avatar,
   badge,
   button,
+  calendar,
   card,
   checkbox,
   dialog,
