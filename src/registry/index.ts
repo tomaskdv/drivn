@@ -6,6 +6,7 @@ import { avatar } from './components/avatar.js'
 import { badge } from './components/badge.js'
 import { button } from './components/button.js'
 import { calendar } from './components/calendar.js'
+import { datePicker } from './components/date-picker.js'
 import { card } from './components/card.js'
 import { checkbox } from './components/checkbox.js'
 import { dialog } from './components/dialog.js'
@@ -79,6 +80,12 @@ export const registry: RegistryEntry[] = [
     description: 'Date picker powered by react-day-picker with single, range, and dropdown modes',
     dependencies: [],
     npmDependencies: ['react-day-picker'],
+  },
+  {
+    name: 'date-picker',
+    description: 'Date picker input with Calendar dropdown for single date and range selection',
+    dependencies: ['calendar'],
+    npmDependencies: [],
   },
   {
     name: 'card',
@@ -179,6 +186,7 @@ export type ComponentName =
   | 'badge'
   | 'button'
   | 'calendar'
+  | 'date-picker'
   | 'card'
   | 'checkbox'
   | 'dialog'
@@ -202,6 +210,7 @@ export const components: Record<ComponentName, string> = {
   badge,
   button,
   calendar,
+  'date-picker': datePicker,
   card,
   checkbox,
   dialog,

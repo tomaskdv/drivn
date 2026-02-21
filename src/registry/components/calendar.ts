@@ -4,6 +4,7 @@ import * as React from 'react'
 import {
   DayPicker,
   type DateRange,
+  type Locale,
   type PropsBase,
   type PropsSingle,
   type PropsRange,
@@ -100,7 +101,7 @@ const variantConfig = {
   dropdown: { captionLayout: 'dropdown' as const },
 }
 
-type CalendarVariant = keyof typeof variantConfig
+export type CalendarVariant = keyof typeof variantConfig
 
 type CalendarProps = Omit<PropsBase, 'mode'> & Omit<PropsSingle, 'mode'> & { variant?: CalendarVariant; fromYear?: number; toYear?: number }
 
@@ -168,7 +169,7 @@ function Range({
   )
 }
 
-export { type DateRange }
+export { type DateRange, type Locale }
 
 export const Calendar = Object.assign(CalendarRoot, {
   Range
