@@ -8,6 +8,7 @@ import { button } from './components/button.js'
 import { calendar } from './components/calendar.js'
 import { datePicker } from './components/date-picker.js'
 import { command } from './components/command.js'
+import { carousel } from './components/carousel.js'
 import { card } from './components/card.js'
 import { checkbox } from './components/checkbox.js'
 import { dialog } from './components/dialog.js'
@@ -93,6 +94,12 @@ export const registry: RegistryEntry[] = [
     description: 'Searchable command menu with filtering, keyboard navigation, and dialog mode',
     dependencies: ['dialog'],
     npmDependencies: ['cmdk'],
+  },
+  {
+    name: 'carousel',
+    description: 'Carousel with touch/swipe, navigation arrows, dot indicators, and loop mode',
+    dependencies: ['button'],
+    npmDependencies: ['embla-carousel-react'],
   },
   {
     name: 'card',
@@ -195,6 +202,7 @@ export type ComponentName =
   | 'calendar'
   | 'date-picker'
   | 'command'
+  | 'carousel'
   | 'card'
   | 'checkbox'
   | 'dialog'
@@ -220,6 +228,7 @@ export const components: Record<ComponentName, string> = {
   calendar,
   'date-picker': datePicker,
   command,
+  carousel,
   card,
   checkbox,
   dialog,
