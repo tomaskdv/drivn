@@ -16,6 +16,7 @@ import { dialog } from './components/dialog.js'
 import { dropdown } from './components/dropdown.js'
 import { input } from './components/input.js'
 import { label } from './components/label.js'
+import { pagination } from './components/pagination.js'
 import { popover } from './components/popover.js'
 import { progress } from './components/progress.js'
 import { radioGroup } from './components/radio-group.js'
@@ -148,6 +149,12 @@ export const registry: RegistryEntry[] = [
     npmDependencies: [],
   },
   {
+    name: 'pagination',
+    description: 'Page navigation with dot notation, Previous/Next, ellipsis, and active state',
+    dependencies: [],
+    npmDependencies: [],
+  },
+  {
     name: 'popover',
     description: 'Floating content panel with dot notation and click-outside',
     dependencies: ['button'],
@@ -238,6 +245,7 @@ export type ComponentName =
   | 'dropdown'
   | 'input'
   | 'label'
+  | 'pagination'
   | 'popover'
   | 'progress'
   | 'radio-group'
@@ -268,6 +276,7 @@ export const components: Record<ComponentName, string> = {
   dropdown,
   input,
   label,
+  pagination,
   popover,
   progress,
   'radio-group': radioGroup,
