@@ -17,6 +17,7 @@ import { dropdown } from './components/dropdown.js'
 import { input } from './components/input.js'
 import { popover } from './components/popover.js'
 import { progress } from './components/progress.js'
+import { radioGroup } from './components/radio-group.js'
 import { select } from './components/select.js'
 import { separator } from './components/separator.js'
 import { switch_ } from './components/switch.js'
@@ -152,6 +153,12 @@ export const registry: RegistryEntry[] = [
     npmDependencies: [],
   },
   {
+    name: 'radio-group',
+    description: 'Radio group with dot notation, orientation support, and controlled/uncontrolled selection',
+    dependencies: [],
+    npmDependencies: [],
+  },
+  {
     name: 'select',
     description: 'Custom select with dot notation and composable options',
     dependencies: [],
@@ -225,6 +232,7 @@ export type ComponentName =
   | 'input'
   | 'popover'
   | 'progress'
+  | 'radio-group'
   | 'select'
   | 'separator'
   | 'switch'
@@ -253,6 +261,7 @@ export const components: Record<ComponentName, string> = {
   input,
   popover,
   progress,
+  'radio-group': radioGroup,
   select,
   separator,
   switch: switch_,
