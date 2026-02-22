@@ -23,6 +23,7 @@ import { switch_ } from './components/switch.js'
 import { tabs } from './components/tabs.js'
 import { textarea } from './components/textarea.js'
 import { toast } from './components/toast.js'
+import { table } from './components/table.js'
 import { tooltip } from './components/tooltip.js'
 
 export { globalsBase, themeTokens, themeProvider }
@@ -175,6 +176,12 @@ export const registry: RegistryEntry[] = [
     npmDependencies: [],
   },
   {
+    name: 'table',
+    description: 'Data table with dot notation, striped/bordered variants, and responsive overflow',
+    dependencies: [],
+    npmDependencies: [],
+  },
+  {
     name: 'textarea',
     description: 'Multi-line text input with consistent styling',
     dependencies: [],
@@ -221,6 +228,7 @@ export type ComponentName =
   | 'select'
   | 'separator'
   | 'switch'
+  | 'table'
   | 'tabs'
   | 'textarea'
   | 'theme'
@@ -248,6 +256,7 @@ export const components: Record<ComponentName, string> = {
   select,
   separator,
   switch: switch_,
+  table,
   tabs,
   textarea,
   theme: themeProvider,
