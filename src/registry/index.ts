@@ -15,6 +15,7 @@ import { checkbox } from './components/checkbox.js'
 import { dialog } from './components/dialog.js'
 import { dropdown } from './components/dropdown.js'
 import { input } from './components/input.js'
+import { label } from './components/label.js'
 import { popover } from './components/popover.js'
 import { progress } from './components/progress.js'
 import { radioGroup } from './components/radio-group.js'
@@ -141,6 +142,12 @@ export const registry: RegistryEntry[] = [
     npmDependencies: [],
   },
   {
+    name: 'label',
+    description: 'Accessible form label for inputs, checkboxes, and selects',
+    dependencies: [],
+    npmDependencies: [],
+  },
+  {
     name: 'popover',
     description: 'Floating content panel with dot notation and click-outside',
     dependencies: ['button'],
@@ -230,6 +237,7 @@ export type ComponentName =
   | 'dialog'
   | 'dropdown'
   | 'input'
+  | 'label'
   | 'popover'
   | 'progress'
   | 'radio-group'
@@ -259,6 +267,7 @@ export const components: Record<ComponentName, string> = {
   dialog,
   dropdown,
   input,
+  label,
   popover,
   progress,
   'radio-group': radioGroup,
