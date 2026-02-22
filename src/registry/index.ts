@@ -4,6 +4,7 @@ import { accordion } from './components/accordion.js'
 import { alert } from './components/alert.js'
 import { avatar } from './components/avatar.js'
 import { badge } from './components/badge.js'
+import { breadcrumb } from './components/breadcrumb.js'
 import { button } from './components/button.js'
 import { calendar } from './components/calendar.js'
 import { datePicker } from './components/date-picker.js'
@@ -68,6 +69,12 @@ export const registry: RegistryEntry[] = [
   {
     name: 'badge',
     description: 'Small status indicator with color variants',
+    dependencies: [],
+    npmDependencies: [],
+  },
+  {
+    name: 'breadcrumb',
+    description: 'Breadcrumb navigation with auto-separators, ellipsis, and dot notation',
     dependencies: [],
     npmDependencies: [],
   },
@@ -198,6 +205,7 @@ export type ComponentName =
   | 'alert'
   | 'avatar'
   | 'badge'
+  | 'breadcrumb'
   | 'button'
   | 'calendar'
   | 'date-picker'
@@ -224,6 +232,7 @@ export const components: Record<ComponentName, string> = {
   alert,
   avatar,
   badge,
+  breadcrumb,
   button,
   calendar,
   'date-picker': datePicker,
