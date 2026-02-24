@@ -3,14 +3,14 @@ import { cn } from '@/utils/cn'
 
 const styles = {
   base: cn(
+    'w-48 aspect-square flex flex-col',
     'bg-card border border-border rounded-[20px]',
     'overflow-hidden transition-all duration-200'
   ),
   hover: 'hover:bg-accent hover:border-border hover:-translate-y-1',
   preview: cn(
-    'h-[140px] flex items-center justify-center',
-    'border-b border-border p-6',
-    'bg-[radial-gradient(ellipse_at_50%_50%,hsl(239_84%_67%_/_0.08)_0%,transparent_70%)]'
+    'flex-1 flex items-center justify-center',
+    'border-b border-border p-6'
   ),
   info: 'p-5 flex justify-between items-center',
 }
