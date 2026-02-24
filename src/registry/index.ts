@@ -15,6 +15,7 @@ import { checkbox } from './components/checkbox.js'
 import { dialog } from './components/dialog.js'
 import { dropdown } from './components/dropdown.js'
 import { input } from './components/input.js'
+import { kbd } from './components/kbd.js'
 import { label } from './components/label.js'
 import { pagination } from './components/pagination.js'
 import { popover } from './components/popover.js'
@@ -143,6 +144,12 @@ export const registry: RegistryEntry[] = [
     npmDependencies: [],
   },
   {
+    name: 'kbd',
+    description: 'Keyboard key display for shortcuts and hotkeys',
+    dependencies: [],
+    npmDependencies: [],
+  },
+  {
     name: 'label',
     description: 'Accessible form label for inputs, checkboxes, and selects',
     dependencies: [],
@@ -244,6 +251,7 @@ export type ComponentName =
   | 'dialog'
   | 'dropdown'
   | 'input'
+  | 'kbd'
   | 'label'
   | 'pagination'
   | 'popover'
@@ -275,6 +283,7 @@ export const components: Record<ComponentName, string> = {
   dialog,
   dropdown,
   input,
+  kbd,
   label,
   pagination,
   popover,
