@@ -42,7 +42,7 @@ const styles = {
     day: 'p-0 text-center',
     day_button: cn(
       'inline-flex items-center justify-center',
-      'w-8 h-8 rounded-md text-sm cursor-pointer',
+      'w-8 h-8 rounded-md text-sm font-medium cursor-pointer',
       'hover:bg-accent hover:text-accent-foreground',
       'focus-visible:outline-none'
     ),

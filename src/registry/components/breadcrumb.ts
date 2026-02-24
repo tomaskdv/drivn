@@ -8,7 +8,7 @@ const styles = {
     'flex-wrap text-sm text-muted-foreground'
   ),
   link: cn(
-    'transition-colors hover:text-foreground',
+    'font-medium transition-colors hover:text-foreground',
     'inline-flex items-center gap-1'
   ),
   page: 'font-medium text-foreground',

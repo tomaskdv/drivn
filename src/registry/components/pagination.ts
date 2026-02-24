@@ -7,7 +7,7 @@ const styles = {
   content: 'flex flex-row items-center gap-1',
   link: cn(
     'inline-flex items-center justify-center',
-    'h-9 min-w-9 px-3 rounded-[10px] text-sm',
+    'h-9 min-w-9 px-3 rounded-[10px] text-sm font-medium',
     'text-muted-foreground hover:text-foreground',
     'hover:bg-accent transition-colors cursor-pointer'
   ),
@@ -17,7 +17,7 @@ const styles = {
   ),
   nav_link: cn(
     'inline-flex items-center justify-center',
-    'h-9 px-3 gap-1 rounded-[10px] text-sm',
+    'h-9 px-3 gap-1 rounded-[10px] text-sm font-medium',
     'text-muted-foreground hover:text-foreground',
     'hover:bg-accent transition-colors cursor-pointer'
   ),
