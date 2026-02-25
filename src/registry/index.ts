@@ -23,6 +23,7 @@ import { progress } from './components/progress.js'
 import { radioGroup } from './components/radio-group.js'
 import { select } from './components/select.js'
 import { separator } from './components/separator.js'
+import { slider } from './components/slider.js'
 import { switch_ } from './components/switch.js'
 import { tabs } from './components/tabs.js'
 import { textarea } from './components/textarea.js'
@@ -192,6 +193,12 @@ export const registry: RegistryEntry[] = [
     npmDependencies: [],
   },
   {
+    name: 'slider',
+    description: 'Range slider with pointer drag, step snapping, and size variants',
+    dependencies: [],
+    npmDependencies: [],
+  },
+  {
     name: 'switch',
     description: 'Toggle switch with smooth transition',
     dependencies: [],
@@ -259,6 +266,7 @@ export type ComponentName =
   | 'radio-group'
   | 'select'
   | 'separator'
+  | 'slider'
   | 'switch'
   | 'table'
   | 'tabs'
@@ -291,6 +299,7 @@ export const components: Record<ComponentName, string> = {
   'radio-group': radioGroup,
   select,
   separator,
+  slider,
   switch: switch_,
   table,
   tabs,
