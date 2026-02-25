@@ -23,6 +23,7 @@ import { progress } from './components/progress.js'
 import { radioGroup } from './components/radio-group.js'
 import { select } from './components/select.js'
 import { separator } from './components/separator.js'
+import { sidebar } from './components/sidebar.js'
 import { slider } from './components/slider.js'
 import { switch_ } from './components/switch.js'
 import { tabs } from './components/tabs.js'
@@ -193,6 +194,12 @@ export const registry: RegistryEntry[] = [
     npmDependencies: [],
   },
   {
+    name: 'sidebar',
+    description: 'Collapsible sidebar with dot notation, icon items, groups, and layout variants',
+    dependencies: [],
+    npmDependencies: [],
+  },
+  {
     name: 'slider',
     description: 'Range slider with pointer drag, step snapping, and size variants',
     dependencies: [],
@@ -266,6 +273,7 @@ export type ComponentName =
   | 'radio-group'
   | 'select'
   | 'separator'
+  | 'sidebar'
   | 'slider'
   | 'switch'
   | 'table'
@@ -299,6 +307,7 @@ export const components: Record<ComponentName, string> = {
   'radio-group': radioGroup,
   select,
   separator,
+  sidebar,
   slider,
   switch: switch_,
   table,
