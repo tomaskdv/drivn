@@ -2,6 +2,7 @@ import { globalsBase, themeTokens } from './globals.js'
 import { themeProvider } from './components/theme-provider.js'
 import { accordion } from './components/accordion.js'
 import { alert } from './components/alert.js'
+import { aspectRatio } from './components/aspect-ratio.js'
 import { avatar } from './components/avatar.js'
 import { badge } from './components/badge.js'
 import { breadcrumb } from './components/breadcrumb.js'
@@ -64,6 +65,12 @@ export const registry: RegistryEntry[] = [
   {
     name: 'alert',
     description: 'Contextual feedback messages with variants and icons',
+    dependencies: [],
+    npmDependencies: [],
+  },
+  {
+    name: 'aspect-ratio',
+    description: 'Maintain consistent width-to-height ratios for images, videos, and embedded content',
     dependencies: [],
     npmDependencies: [],
   },
@@ -252,6 +259,7 @@ export const registry: RegistryEntry[] = [
 export type ComponentName =
   | 'accordion'
   | 'alert'
+  | 'aspect-ratio'
   | 'avatar'
   | 'badge'
   | 'breadcrumb'
@@ -286,6 +294,7 @@ export type ComponentName =
 export const components: Record<ComponentName, string> = {
   accordion,
   alert,
+  'aspect-ratio': aspectRatio,
   avatar,
   badge,
   breadcrumb,
