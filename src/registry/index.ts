@@ -14,6 +14,7 @@ import { carousel } from './components/carousel.js'
 import { card } from './components/card.js'
 import { checkbox } from './components/checkbox.js'
 import { dialog } from './components/dialog.js'
+import { drawer } from './components/drawer.js'
 import { dropdown } from './components/dropdown.js'
 import { input } from './components/input.js'
 import { kbd } from './components/kbd.js'
@@ -137,6 +138,12 @@ export const registry: RegistryEntry[] = [
   {
     name: 'dialog',
     description: 'Modal dialog with dot notation, overlay, and escape key',
+    dependencies: ['button'],
+    npmDependencies: [],
+  },
+  {
+    name: 'drawer',
+    description: 'Slide-in panel with side positioning, header/footer, and overlay',
     dependencies: ['button'],
     npmDependencies: [],
   },
@@ -271,6 +278,7 @@ export type ComponentName =
   | 'card'
   | 'checkbox'
   | 'dialog'
+  | 'drawer'
   | 'dropdown'
   | 'input'
   | 'kbd'
@@ -306,6 +314,7 @@ export const components: Record<ComponentName, string> = {
   card,
   checkbox,
   dialog,
+  drawer,
   dropdown,
   input,
   kbd,
