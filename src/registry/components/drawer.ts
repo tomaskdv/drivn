@@ -25,12 +25,14 @@ const styles = {
   ),
   sides: {
     right: cn(
-      'right-0 top-0 h-dvh w-[400px] border-l border-border',
+      'right-0 top-0 h-dvh w-full max-w-[400px]',
+      'border-l border-border',
       'translate-x-[100%] group-open:translate-x-[0%]',
       'starting:group-open:translate-x-[100%]'
     ),
     left: cn(
-      'left-0 top-0 h-dvh w-[400px] border-r border-border',
+      'left-0 top-0 h-dvh w-full max-w-[400px]',
+      'border-r border-border',
       'translate-x-[-100%] group-open:translate-x-[0%]',
       'starting:group-open:translate-x-[-100%]'
     ),
