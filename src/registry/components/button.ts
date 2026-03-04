@@ -4,7 +4,7 @@ import { cn } from '@/utils/cn'
 
 const styles = {
   base: cn(
-    'inline-flex items-center justify-center',
+    'inline-flex items-center justify-center outline-none',
     'font-semibold transition-all duration-150',
     'cursor-pointer disabled:opacity-50',
     'disabled:pointer-events-none'

@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button'
 
 const styles = {
   base: cn(
-    'fixed inset-0 m-0 p-0 border-none',
+    'fixed inset-0 m-0 p-0 border-none outline-none',
     'max-w-none max-h-none w-screen h-dvh',
     'flex items-center justify-center bg-overlay',
     'backdrop-blur-sm transition-opacity duration-150',
@@ -21,7 +21,7 @@ const styles = {
   title: 'text-lg font-semibold text-foreground mb-4',
   close: cn(
     'absolute top-4 right-4 w-8 h-8 cursor-pointer',
-    'flex items-center justify-center rounded-full',
+    'flex items-center justify-center rounded-full outline-none',
     'text-muted-foreground hover:text-foreground',
     'hover:bg-accent transition-colors'
   ),
