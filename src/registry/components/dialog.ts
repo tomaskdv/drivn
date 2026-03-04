@@ -77,10 +77,12 @@ function Trigger({
 function Content({
   children,
   title,
+  showClose = true,
   className,
 }: {
   children: React.ReactNode
   title?: string
+  showClose?: boolean
   className?: string
 }) {
   const { open, setOpen } = useDialog()
@@ -126,21 +128,17 @@ function Content({
         {title && (
           <h2 className={styles.title}>{title}</h2>
         )}
+        {showClose && (
+          <button
+            className={styles.close}
+            onClick={() => setOpen(false)}
+          >
+            <X className="w-3.5 h-3.5" />
+          </button>
+        )}
         {children}
       </div>
     </dialog>
-  )
-}
-
-function Close({ className }: { className?: string }) {
-  const { setOpen } = useDialog()
-  return (
-    <button
-      className={cn(styles.close, className)}
-      onClick={() => setOpen(false)}
-    >
-      <X className="w-3.5 h-3.5" />
-    </button>
   )
 }
 
@@ -155,6 +153,5 @@ function useDialog() {
 export const Dialog = Object.assign(DialogRoot, {
   Trigger,
   Content,
-  Close
 })
 `
