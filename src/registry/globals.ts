@@ -7,9 +7,9 @@ export const globalsBase = `@import "tailwindcss";
   --foreground: hsl(222 47% 11%);
   --card: hsl(0 0% 100%);
   --card-foreground: hsl(222 47% 11%);
-  --muted: hsl(212 30% 93.5%);
+  --muted: hsl(0 0% 95.3%);
   --muted-foreground: hsl(220 17% 17%);
-  --accent: hsl(210 40% 96%);
+  --accent: hsl(240 5% 96.5%);
   --accent-foreground: hsl(222 47% 11%);
 
   /* Brand */
@@ -114,9 +114,9 @@ export const themeTokens = `
   --foreground: hsl(222 47% 11%);
   --card: hsl(0 0% 100%);
   --card-foreground: hsl(222 47% 11%);
-  --muted: hsl(212 30% 93.5%);
+  --muted: hsl(0 0% 95.3%);
   --muted-foreground: hsl(220 17% 17%);
-  --accent: hsl(210 40% 96%);
+  --accent: hsl(240 5% 96.5%);
   --accent-foreground: hsl(222 47% 11%);
 
   /* Brand */
