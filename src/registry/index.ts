@@ -13,6 +13,7 @@ import { command } from './components/command.js'
 import { carousel } from './components/carousel.js'
 import { card } from './components/card.js'
 import { checkbox } from './components/checkbox.js'
+import { collapsible } from './components/collapsible.js'
 import { dialog } from './components/dialog.js'
 import { drawer } from './components/drawer.js'
 import { dropdown } from './components/dropdown.js'
@@ -133,6 +134,12 @@ export const registry: RegistryEntry[] = [
   {
     name: 'checkbox',
     description: 'Checkbox input with label and CSS-only checkmark',
+    dependencies: [],
+    npmDependencies: [],
+  },
+  {
+    name: 'collapsible',
+    description: 'Toggle content visibility with smooth animation and accessible controls',
     dependencies: [],
     npmDependencies: [],
   },
@@ -284,6 +291,7 @@ export type ComponentName =
   | 'carousel'
   | 'card'
   | 'checkbox'
+  | 'collapsible'
   | 'dialog'
   | 'drawer'
   | 'dropdown'
@@ -321,6 +329,7 @@ export const components: Record<ComponentName, string> = {
   carousel,
   card,
   checkbox,
+  collapsible,
   dialog,
   drawer,
   dropdown,
