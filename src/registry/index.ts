@@ -25,6 +25,7 @@ import { progress } from './components/progress.js'
 import { radioGroup } from './components/radio-group.js'
 import { select } from './components/select.js'
 import { separator } from './components/separator.js'
+import { skeleton } from './components/skeleton.js'
 import { sidebar } from './components/sidebar.js'
 import { slider } from './components/slider.js'
 import { switch_ } from './components/switch.js'
@@ -208,6 +209,12 @@ export const registry: RegistryEntry[] = [
     npmDependencies: [],
   },
   {
+    name: 'skeleton',
+    description: 'Loading placeholder with pulse animation, sized and shaped via className',
+    dependencies: [],
+    npmDependencies: [],
+  },
+  {
     name: 'sidebar',
     description: 'Collapsible sidebar with dot notation, icon items, groups, and layout variants',
     dependencies: [],
@@ -289,6 +296,7 @@ export type ComponentName =
   | 'radio-group'
   | 'select'
   | 'separator'
+  | 'skeleton'
   | 'sidebar'
   | 'slider'
   | 'switch'
@@ -325,6 +333,7 @@ export const components: Record<ComponentName, string> = {
   'radio-group': radioGroup,
   select,
   separator,
+  skeleton,
   sidebar,
   slider,
   switch: switch_,
