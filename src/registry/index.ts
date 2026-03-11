@@ -25,6 +25,7 @@ import { popover } from './components/popover.js'
 import { progress } from './components/progress.js'
 import { radioGroup } from './components/radio-group.js'
 import { select } from './components/select.js'
+import { scrollArea } from './components/scroll-area.js'
 import { separator } from './components/separator.js'
 import { skeleton } from './components/skeleton.js'
 import { sidebar } from './components/sidebar.js'
@@ -210,6 +211,12 @@ export const registry: RegistryEntry[] = [
     npmDependencies: [],
   },
   {
+    name: 'scroll-area',
+    description: 'Themed scrollable container with custom scrollbar styling and orientation control',
+    dependencies: [],
+    npmDependencies: [],
+  },
+  {
     name: 'separator',
     description: 'Visual divider with horizontal and vertical orientation',
     dependencies: [],
@@ -303,6 +310,7 @@ export type ComponentName =
   | 'progress'
   | 'radio-group'
   | 'select'
+  | 'scroll-area'
   | 'separator'
   | 'skeleton'
   | 'sidebar'
@@ -341,6 +349,7 @@ export const components: Record<ComponentName, string> = {
   progress,
   'radio-group': radioGroup,
   select,
+  'scroll-area': scrollArea,
   separator,
   skeleton,
   sidebar,
