@@ -34,6 +34,7 @@ import { switch_ } from './components/switch.js'
 import { tabs } from './components/tabs.js'
 import { textarea } from './components/textarea.js'
 import { toast } from './components/toast.js'
+import { toggle } from './components/toggle.js'
 import { table } from './components/table.js'
 import { tooltip } from './components/tooltip.js'
 
@@ -277,6 +278,12 @@ export const registry: RegistryEntry[] = [
     npmDependencies: ['sonner'],
   },
   {
+    name: 'toggle',
+    description: 'Toggle button with pressed state, single and multiple selection groups',
+    dependencies: [],
+    npmDependencies: [],
+  },
+  {
     name: 'tooltip',
     description: 'Pure CSS tooltip with 4 position options',
     dependencies: [],
@@ -321,6 +328,7 @@ export type ComponentName =
   | 'textarea'
   | 'theme'
   | 'toast'
+  | 'toggle'
   | 'tooltip'
 
 export const components: Record<ComponentName, string> = {
@@ -360,5 +368,6 @@ export const components: Record<ComponentName, string> = {
   textarea,
   theme: themeProvider,
   toast,
+  toggle,
   tooltip,
 }
