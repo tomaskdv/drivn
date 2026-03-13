@@ -29,6 +29,7 @@ export function Switch({
 }: SwitchProps) {
   return (
     <button
+      type="button"
       role="switch"
       aria-checked={checked}
       onClick={() => onChange?.(!checked)}

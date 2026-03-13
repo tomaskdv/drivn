@@ -90,6 +90,7 @@ function Trigger({
   const { open, setOpen } = useSelect()
   return (
     <button
+      type="button"
       className={cn(styles.trigger, className)}
       onClick={() => setOpen(!open)}
       {...props}
@@ -130,6 +131,7 @@ function Option({
   const { value, onSelect } = useSelect()
   return (
     <button
+      type="button"
       className={cn(styles.option, optValue === value && styles.selected, className)}
       onClick={() => onSelect(optValue)}
       {...props}
