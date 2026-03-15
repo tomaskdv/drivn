@@ -92,6 +92,51 @@ export function ConfirmDialog() {
 }
 ```
 
+## MCP Server
+
+Connect your AI assistant directly to the Drivn component registry via the [Model Context Protocol](https://modelcontextprotocol.io). Instead of copy-pasting component code into chat, your AI gets exact source code, design tokens, and coding conventions automatically.
+
+### Claude Code
+
+```sh
+claude mcp add drivn -- npx drivn@latest mcp
+```
+
+### Cursor
+
+```sh
+npx @anthropic-ai/cursor-mcp-installer drivn -- npx drivn@latest mcp
+```
+
+### Manual configuration
+
+For any MCP-compatible client, add the following to your config file:
+
+```json
+{
+  "mcpServers": {
+    "drivn": {
+      "command": "npx",
+      "args": ["drivn@latest", "mcp"]
+    }
+  }
+}
+```
+
+### Available tools
+
+| Tool | Description |
+|---|---|
+| `list_components` | List all available components with descriptions |
+| `get_component` | Get full source code and metadata for a component |
+| `get_component_metadata` | Get metadata only (no source) — useful for planning |
+| `search_components` | Search components by name or description |
+| `get_installation_instructions` | Get step-by-step install instructions with dependency resolution |
+| `get_design_tokens` | Get CSS design tokens (globals and theme tokens) |
+| `get_drivn_rules` | Get Drivn coding conventions and component patterns |
+
+---
+
 ## License
 
 Licensed under the [MIT License](./LICENSE.md).
