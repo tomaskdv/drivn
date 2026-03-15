@@ -21,6 +21,7 @@ import { dropdown } from './components/dropdown.js'
 import { input } from './components/input.js'
 import { kbd } from './components/kbd.js'
 import { label } from './components/label.js'
+import { navigationMenu } from './components/navigation-menu.js'
 import { pagination } from './components/pagination.js'
 import { popover } from './components/popover.js'
 import { progress } from './components/progress.js'
@@ -189,6 +190,12 @@ export const registry: RegistryEntry[] = [
     npmDependencies: [],
   },
   {
+    name: 'navigation-menu',
+    description: 'Horizontal navigation menu with dropdown content panels and dot notation',
+    dependencies: [],
+    npmDependencies: [],
+  },
+  {
     name: 'pagination',
     description: 'Page navigation with dot notation, Previous/Next, ellipsis, and active state',
     dependencies: [],
@@ -320,6 +327,7 @@ export type ComponentName =
   | 'input'
   | 'kbd'
   | 'label'
+  | 'navigation-menu'
   | 'pagination'
   | 'popover'
   | 'progress'
@@ -361,6 +369,7 @@ export const components: Record<ComponentName, string> = {
   input,
   kbd,
   label,
+  'navigation-menu': navigationMenu,
   pagination,
   popover,
   progress,
