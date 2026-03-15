@@ -15,6 +15,7 @@ import { card } from './components/card.js'
 import { checkbox } from './components/checkbox.js'
 import { combobox } from './components/combobox.js'
 import { collapsible } from './components/collapsible.js'
+import { contextMenu } from './components/context-menu.js'
 import { dialog } from './components/dialog.js'
 import { drawer } from './components/drawer.js'
 import { dropdown } from './components/dropdown.js'
@@ -150,6 +151,12 @@ export const registry: RegistryEntry[] = [
   {
     name: 'collapsible',
     description: 'Toggle content visibility with smooth animation and accessible controls',
+    dependencies: [],
+    npmDependencies: [],
+  },
+  {
+    name: 'context-menu',
+    description: 'Right-click context menu with submenus, keyboard shortcuts, icons, and dot notation',
     dependencies: [],
     npmDependencies: [],
   },
@@ -321,6 +328,7 @@ export type ComponentName =
   | 'checkbox'
   | 'combobox'
   | 'collapsible'
+  | 'context-menu'
   | 'dialog'
   | 'drawer'
   | 'dropdown'
@@ -363,6 +371,7 @@ export const components: Record<ComponentName, string> = {
   checkbox,
   combobox,
   collapsible,
+  'context-menu': contextMenu,
   dialog,
   drawer,
   dropdown,
