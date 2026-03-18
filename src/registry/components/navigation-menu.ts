@@ -7,21 +7,32 @@ import { cn } from '@/utils/cn'
 const styles = {
   root: 'relative',
   list: 'flex items-center gap-1',
-  item: 'relative',
+  item: 'relative group/item',
   trigger: cn(
     'inline-flex items-center gap-1 px-3 py-2',
     'text-sm font-medium text-foreground rounded-lg',
     'hover:bg-accent transition-colors cursor-pointer',
     'outline-none'
   ),
-  triggerIcon: 'w-3.5 h-3.5 transition-transform duration-200',
+  triggerIcon: cn(
+    'w-3.5 h-3.5 transition-transform duration-200',
+    'group-hover/item:rotate-180',
+    'group-focus-within/item:rotate-180'
+  ),
   content: cn(
     'absolute left-0 top-full min-w-[220px] z-50',
     'bg-card border border-border rounded-xl p-2',
     'shadow-lg shadow-black/8',
     'origin-[var(--origin)]',
     'transition-[opacity,visibility]',
-    'duration-150 ease-in'
+    'duration-150 ease-in',
+    'opacity-0 invisible',
+    'group-hover/item:opacity-100',
+    'group-hover/item:visible',
+    'group-hover/item:ease-out',
+    'group-focus-within/item:opacity-100',
+    'group-focus-within/item:visible',
+    'group-focus-within/item:ease-out'
   ),
   link: cn(
     'flex w-full gap-3 px-3 py-2.5',
@@ -67,7 +78,7 @@ function Item({
   className?: string
 }) {
   return (
-    <li className={cn('group/item', styles.item, className)}>
+    <li className={cn(styles.item, className)}>
       {children}
     </li>
   )
@@ -79,9 +90,18 @@ function Trigger({
   ...props
 }: React.ButtonHTMLAttributes<HTMLButtonElement>) {
   return (
-    <button className={cn(styles.trigger, className)} {...props}>
+    <button
+      className={cn(styles.trigger, className)}
+      onMouseDown={(e) => {
+        if (document.activeElement === e.currentTarget) {
+          e.preventDefault()
+          e.currentTarget.blur()
+        }
+      }}
+      {...props}
+    >
       {children}
-      <ChevronDown className={cn(styles.triggerIcon, 'group-hover/item:rotate-180')} />
+      <ChevronDown className={styles.triggerIcon} />
     </button>
   )
 }
@@ -96,14 +116,7 @@ function Content({
   return (
     <div
       style={{ '--origin': '0 0' } as React.CSSProperties}
-      className={cn(
-        styles.content,
-        'opacity-0 invisible',
-        'group-hover/item:opacity-100',
-        'group-hover/item:visible',
-        'group-hover/item:ease-out',
-        className
-      )}
+      className={cn(styles.content, className)}
     >
       {children}
     </div>
