@@ -92,10 +92,12 @@ function Trigger({
   return (
     <button
       className={cn(styles.trigger, className)}
-      onMouseDown={(e) => {
+      onPointerDown={(e) => {
         if (document.activeElement === e.currentTarget) {
           e.preventDefault()
           e.currentTarget.blur()
+        } else {
+          e.currentTarget.focus()
         }
       }}
       {...props}
