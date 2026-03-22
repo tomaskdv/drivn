@@ -33,6 +33,7 @@ import { separator } from './components/separator.js'
 import { skeleton } from './components/skeleton.js'
 import { sidebar } from './components/sidebar.js'
 import { slider } from './components/slider.js'
+import { stepper } from './components/stepper.js'
 import { switch_ } from './components/switch.js'
 import { tabs } from './components/tabs.js'
 import { textarea } from './components/textarea.js'
@@ -263,6 +264,13 @@ export const registry: RegistryEntry[] = [
     npmDependencies: [],
   },
   {
+    name: 'stepper',
+    description:
+      'Multi-step progress indicator with horizontal/vertical orientation, connecting lines, and dot notation',
+    dependencies: [],
+    npmDependencies: [],
+  },
+  {
     name: 'switch',
     description: 'Toggle switch with smooth transition',
     dependencies: [],
@@ -346,6 +354,7 @@ export type ComponentName =
   | 'skeleton'
   | 'sidebar'
   | 'slider'
+  | 'stepper'
   | 'switch'
   | 'table'
   | 'tabs'
@@ -389,6 +398,7 @@ export const components: Record<ComponentName, string> = {
   skeleton,
   sidebar,
   slider,
+  stepper,
   switch: switch_,
   table,
   tabs,
