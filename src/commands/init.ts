@@ -99,7 +99,6 @@ export async function init() {
       components: paths.components,
       utils: paths.utils,
     } as { components: string; utils: string; globals?: string },
-    installed: [] as string[],
   }
 
   const ext = projectInfo.typescript ? 'ts' : 'js'
