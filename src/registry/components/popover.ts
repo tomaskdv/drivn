@@ -65,6 +65,7 @@ function Trigger({
   const { open, setOpen } = usePopover()
   return (
     <Button
+      type="button"
       variant="outline"
       rounded="md"
       className={className}
