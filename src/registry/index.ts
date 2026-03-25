@@ -37,6 +37,7 @@ import { stepper } from './components/stepper.js'
 import { switch_ } from './components/switch.js'
 import { tabs } from './components/tabs.js'
 import { textarea } from './components/textarea.js'
+import { timePicker } from './components/time-picker.js'
 import { toast } from './components/toast.js'
 import { toggle } from './components/toggle.js'
 import { table } from './components/table.js'
@@ -295,6 +296,13 @@ export const registry: RegistryEntry[] = [
     npmDependencies: [],
   },
   {
+    name: 'time-picker',
+    description:
+      'Time picker with scrollable dropdown columns and native input mode',
+    dependencies: ['popover', 'input'],
+    npmDependencies: [],
+  },
+  {
     name: 'theme',
     description: 'Dark/light theme support with next-themes and ThemeProvider',
     dependencies: [],
@@ -359,6 +367,7 @@ export type ComponentName =
   | 'table'
   | 'tabs'
   | 'textarea'
+  | 'time-picker'
   | 'theme'
   | 'toast'
   | 'toggle'
@@ -403,6 +412,7 @@ export const components: Record<ComponentName, string> = {
   table,
   tabs,
   textarea,
+  'time-picker': timePicker,
   theme: themeProvider,
   toast,
   toggle,
