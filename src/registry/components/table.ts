@@ -7,7 +7,11 @@ const styles = {
   variants: {
     default: '',
     striped: '[&_tbody_tr:nth-child(even)]:bg-muted/30',
-    bordered: '[&_th]:border [&_td]:border',
+    bordered: cn(
+      '[&_th]:border [&_td]:border',
+      '[&_th]:border-border [&_td]:border-border',
+      '[&_tbody_tr:nth-child(even)]:bg-muted/30'
+    ),
   },
   caption: 'mt-3 text-sm text-muted-foreground',
   header: '[&_tr]:border-b [&_tr]:border-border',
