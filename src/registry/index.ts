@@ -16,6 +16,7 @@ import { checkbox } from './components/checkbox.js'
 import { combobox } from './components/combobox.js'
 import { collapsible } from './components/collapsible.js'
 import { contextMenu } from './components/context-menu.js'
+import { dataTable } from './components/data-table.js'
 import { dialog } from './components/dialog.js'
 import { drawer } from './components/drawer.js'
 import { dropdown } from './components/dropdown.js'
@@ -160,6 +161,12 @@ export const registry: RegistryEntry[] = [
     name: 'context-menu',
     description: 'Right-click context menu with submenus, keyboard shortcuts, icons, and dot notation',
     dependencies: [],
+    npmDependencies: [],
+  },
+  {
+    name: 'data-table',
+    description: 'Data-driven table with sorting, selection, loading, and empty states',
+    dependencies: ['table', 'checkbox', 'skeleton', 'pagination'],
     npmDependencies: [],
   },
   {
@@ -345,6 +352,7 @@ export type ComponentName =
   | 'combobox'
   | 'collapsible'
   | 'context-menu'
+  | 'data-table'
   | 'dialog'
   | 'drawer'
   | 'dropdown'
@@ -390,6 +398,7 @@ export const components: Record<ComponentName, string> = {
   combobox,
   collapsible,
   'context-menu': contextMenu,
+  'data-table': dataTable,
   dialog,
   drawer,
   dropdown,
