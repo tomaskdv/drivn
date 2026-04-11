@@ -14,7 +14,15 @@ import type {
   ComponentName,
 } from '../registry/index.js'
 import { drivnRules } from '../mcp/rules.js'
+import {
+  type PackageManager,
+  getRunnerPrefix,
+  getInstallCommand,
+} from '../utils/package-manager.js'
 import pkg from '../../package.json'
+
+const packageManagers: [PackageManager, ...PackageManager[]] =
+  ['npm', 'pnpm', 'yarn']
 
 function findEntry(name: string): RegistryEntry | undefined {
   return registry.find((c) => c.name === name)
@@ -180,7 +188,7 @@ export async function mcp() {
         .array(z.string())
         .describe('Component names to install'),
       packageManager: z
-        .enum(['npm', 'pnpm'])
+        .enum(packageManagers)
         .optional()
         .describe('Package manager (default: npm)'),
     },
@@ -216,18 +224,13 @@ export async function mcp() {
         }
       }
 
-      const runPrefix =
-        pm === 'pnpm' ? 'pnpm dlx' : 'npx'
-      const installPrefix =
-        pm === 'pnpm' ? 'pnpm add' : 'npm install'
-
       const steps: string[] = []
       steps.push(
-        `# Install components via CLI\n${runPrefix} drivn@latest add ${[...toInstall].join(' ')}`
+        `# Install components via CLI\n${getRunnerPrefix(pm)} drivn@latest add ${[...toInstall].join(' ')}`
       )
       if (npmDeps.size) {
         steps.push(
-          `# Install required npm dependencies\n${installPrefix} ${[...npmDeps].join(' ')}`
+          `# Install required npm dependencies\n${getInstallCommand(pm, [...npmDeps])}`
         )
       }
       steps.push(
