@@ -1,9 +1,8 @@
 <p align="center">
   <a href="https://drivnui.com">
-    <img src="https://raw.githubusercontent.com/tomaskdv/drivn/main/.github/assets/logo.svg" width="60" height="60" alt="Drivn" />
+    <img src="https://raw.githubusercontent.com/tomaskdv/drivn/main/.github/assets/logo.png" width="240" alt="Drivn" />
   </a>
 </p>
-<h1 align="center">Drivn</h1>
 <h3 align="center">Write less. Build more.</h3>
 <p align="center">
   Components with dot notation, smart dependencies, and zero verbosity. Ship faster with cleaner code.
