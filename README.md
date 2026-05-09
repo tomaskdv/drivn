@@ -1,6 +1,9 @@
 <p align="center">
   <a href="https://drivnui.com">
-    <img src="https://raw.githubusercontent.com/tomaskdv/drivn/main/.github/assets/logo.png" width="240" alt="Drivn" />
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/tomaskdv/drivn/main/.github/assets/logo-dark.png">
+      <img src="https://raw.githubusercontent.com/tomaskdv/drivn/main/.github/assets/logo-light.png" width="240" alt="Drivn" />
+    </picture>
   </a>
 </p>
 <h3 align="center">Write less. Build more.</h3>
