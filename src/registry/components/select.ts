@@ -9,7 +9,8 @@ const styles = {
   trigger: cn(
     'flex items-center justify-between w-full h-10 px-4',
     'border border-input rounded-[10px] text-sm',
-    'focus:outline-none transition-colors',
+    'focus:outline-none transition-[color,box-shadow]',
+    'focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:border-ring',
     'cursor-pointer'
   ),
   placeholder: 'text-muted-foreground',

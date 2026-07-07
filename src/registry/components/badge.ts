@@ -7,7 +7,7 @@ const styles = {
     'text-xs font-semibold rounded-full'
   ),
   variants: {
-    default: 'bg-primary/15 text-primary-light border border-primary/20',
+    default: 'bg-primary/15 text-primary border border-primary/20',
     secondary: 'bg-secondary/15 text-secondary border border-secondary/30',
     success: 'bg-success/15 text-success border border-success/20',
     outline: 'border border-border text-muted-foreground',

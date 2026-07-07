@@ -5,12 +5,13 @@ import { cn } from '@/utils/cn'
 
 const styles = {
   base: cn(
-    'relative w-12 h-[26px] rounded-full',
-    'transition-colors duration-200 overflow-hidden'
+    'relative w-12 h-[26px] rounded-full outline-none',
+    'transition-colors duration-200 overflow-hidden',
+    'focus-visible:ring-[3px] focus-visible:ring-ring/50'
   ),
   thumb: cn(
     'absolute left-0 top-[3px] w-5 h-5',
-    'bg-white rounded-full shadow-md',
+    'bg-primary-foreground rounded-full shadow-md',
     'transition-transform duration-200'
   ),
 }

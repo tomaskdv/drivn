@@ -121,7 +121,7 @@ export const Slider = React.forwardRef<HTMLInputElement, SliderProps>(({
             aria-valuenow={current}
             aria-valuemin={min}
             aria-valuemax={max}
-            className={cn(styles.thumb, dir.thumb, s.thumb)}
+            className={cn(styles.thumb, dir.thumb, s.thumb, 'outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50')}
             style={isH ? { left: \`\${pct}%\` } : { bottom: \`\${pct}%\` }}
           />
         </div>

@@ -15,8 +15,9 @@ const styles = {
   trigger: cn(
     'flex items-center gap-2 w-full h-10 px-3',
     'border border-input rounded-[10px] text-sm',
-    'text-foreground transition-colors cursor-pointer',
-    'focus:outline-none',
+    'text-foreground transition-[color,box-shadow] cursor-pointer',
+    'focus:outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50',
+    'focus-visible:border-ring',
     'disabled:opacity-50 disabled:cursor-default'
   ),
   placeholder: 'text-muted-foreground',

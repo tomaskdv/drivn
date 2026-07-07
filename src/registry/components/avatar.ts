@@ -5,7 +5,7 @@ const styles = {
   base: cn(
     'relative inline-flex items-center justify-center',
     'rounded-full overflow-hidden',
-    'bg-gradient-to-br from-primary to-secondary'
+    'bg-muted'
   ),
   sizes: {
     sm: 'w-8 h-8 text-xs',
@@ -35,7 +35,7 @@ export function Avatar({
       {src ? (
         <img src={src} alt={alt} className="w-full h-full object-cover" />
       ) : (
-        <span className="font-medium text-primary-foreground">
+        <span className="font-medium text-foreground">
           {fallback?.slice(0, 2).toUpperCase()}
         </span>
       )}

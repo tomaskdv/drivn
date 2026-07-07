@@ -12,22 +12,25 @@ export const globalsBase = `@import "tailwindcss";
   --accent: hsl(240 5% 96.5%);
   --accent-foreground: hsl(222 47% 11%);
 
-  /* Brand */
-  --primary: hsl(239 84% 67%);
-  --primary-light: hsl(239 84% 74%);
-  --primary-foreground: hsl(0 0% 100%);
+  /* Brand (monochrome — near-black on light surfaces) */
+  --primary: hsl(240 6% 10%);
+  --primary-light: hsl(240 5% 26%);
+  --primary-foreground: hsl(0 0% 98%);
   --secondary: hsl(189 90% 36%);
   --secondary-foreground: hsl(0 0% 100%);
 
   /* Semantic */
   --success: hsl(142 76% 36%);
   --success-foreground: hsl(0 0% 100%);
+  --info: hsl(217 91% 45%);
+  --info-foreground: hsl(0 0% 100%);
   --destructive: hsl(0 72% 51%);
   --destructive-foreground: hsl(0 0% 100%);
 
   /* Borders & Inputs */
   --border: hsl(214 32% 91%);
   --input: hsl(214 32% 91%);
+  --ring: hsl(0 0% 64%);
 
   /* Special Surfaces */
   --overlay: hsl(0 0% 0% / 0.18);
@@ -56,10 +59,13 @@ export const globalsBase = `@import "tailwindcss";
   --color-destructive-foreground: var(--destructive-foreground);
   --color-success: var(--success);
   --color-success-foreground: var(--success-foreground);
+  --color-info: var(--info);
+  --color-info-foreground: var(--info-foreground);
 
   /* Borders & Inputs */
   --color-border: var(--border);
   --color-input: var(--input);
+  --color-ring: var(--ring);
 
   /* Special Surfaces */
   --color-overlay: var(--overlay);
@@ -83,26 +89,29 @@ export const themeTokens = `
   --card: hsl(240 5% 7%);
   --card-foreground: hsl(0 0% 98%);
   --muted: hsl(240 4% 16%);
-  --muted-foreground: hsl(220, 17%, 83%);
+  --muted-foreground: hsl(220 17% 83%);
   --accent: hsl(240 4% 10%);
   --accent-foreground: hsl(0 0% 98%);
 
-  /* Brand */
-  --primary: hsl(239 84% 67%);
-  --primary-light: hsl(239 84% 74%);
-  --primary-foreground: hsl(0 0% 100%);
+  /* Brand (monochrome — near-white on dark surfaces) */
+  --primary: hsl(0 0% 98%);
+  --primary-light: hsl(0 0% 85%);
+  --primary-foreground: hsl(240 6% 10%);
   --secondary: hsl(189 94% 53%);
   --secondary-foreground: hsl(0 0% 100%);
 
   /* Semantic */
   --success: hsl(142 71% 59%);
   --success-foreground: hsl(0 0% 100%);
+  --info: hsl(217 91% 60%);
+  --info-foreground: hsl(0 0% 100%);
   --destructive: hsl(0 84% 60%);
   --destructive-foreground: hsl(0 0% 100%);
 
   /* Borders & Inputs */
   --border: hsl(240 4% 16%);
   --input: hsl(240 4% 16%);
+  --ring: hsl(0 0% 56%);
 
   /* Special Surfaces */
   --overlay: hsl(0 0% 0% / 0.5);
@@ -119,22 +128,25 @@ export const themeTokens = `
   --accent: hsl(240 5% 96.5%);
   --accent-foreground: hsl(222 47% 11%);
 
-  /* Brand */
-  --primary: hsl(239 84% 67%);
-  --primary-light: hsl(239 84% 74%);
-  --primary-foreground: hsl(0 0% 100%);
+  /* Brand (monochrome — near-black on light surfaces) */
+  --primary: hsl(240 6% 10%);
+  --primary-light: hsl(240 5% 26%);
+  --primary-foreground: hsl(0 0% 98%);
   --secondary: hsl(189 90% 36%);
   --secondary-foreground: hsl(0 0% 100%);
 
   /* Semantic */
   --success: hsl(142 76% 36%);
   --success-foreground: hsl(0 0% 100%);
+  --info: hsl(217 91% 45%);
+  --info-foreground: hsl(0 0% 100%);
   --destructive: hsl(0 72% 51%);
   --destructive-foreground: hsl(0 0% 100%);
 
   /* Borders & Inputs */
   --border: hsl(214 32% 91%);
   --input: hsl(214 32% 91%);
+  --ring: hsl(0 0% 64%);
 
   /* Special Surfaces */
   --overlay: hsl(0 0% 0% / 0.18);

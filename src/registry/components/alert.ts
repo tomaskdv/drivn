@@ -5,7 +5,7 @@ const styles = {
   base: 'flex gap-3 p-4 rounded-[10px] border text-sm',
   variants: {
     default: 'bg-accent/50 border-border text-foreground',
-    info: 'bg-primary/10 border-primary/20 text-primary-light',
+    info: 'bg-info/10 border-info/20 text-info',
     success: 'bg-success/10 border-success/20 text-success',
     destructive: 'bg-destructive/10 border-destructive/20 text-destructive',
   },

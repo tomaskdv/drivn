@@ -12,7 +12,8 @@ const styles = {
       'flex items-center justify-between w-full min-h-10',
       'px-3 gap-2',
       'border border-input rounded-[10px] text-sm',
-      'focus:outline-none transition-colors',
+      'focus:outline-none transition-[color,box-shadow]',
+      'focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:border-ring',
       'cursor-pointer'
     ),
     singleText: 'flex-1 truncate text-left',

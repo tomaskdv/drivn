@@ -14,8 +14,9 @@ const styles = {
   ),
   item: cn(
     'flex items-center gap-2 w-full px-3 py-2',
-    'text-sm text-foreground rounded-lg',
-    'hover:bg-accent transition-colors cursor-pointer'
+    'text-sm text-foreground rounded-lg outline-none',
+    'hover:bg-accent transition-colors cursor-pointer',
+    'focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:ring-inset'
   ),
   destructive: 'text-destructive hover:bg-destructive/10',
   group: 'py-1',

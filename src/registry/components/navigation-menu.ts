@@ -12,7 +12,7 @@ const styles = {
     'inline-flex items-center gap-1 px-3 py-2',
     'text-sm font-medium text-foreground rounded-lg',
     'hover:bg-accent transition-colors cursor-pointer',
-    'outline-none'
+    'outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50'
   ),
   triggerIcon: cn(
     'w-3.5 h-3.5 transition-transform duration-200',
@@ -38,7 +38,7 @@ const styles = {
     'flex w-full gap-3 px-3 py-2.5',
     'text-sm font-medium text-foreground rounded-lg',
     'hover:bg-accent transition-colors cursor-pointer',
-    'no-underline outline-none'
+    'no-underline outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50'
   ),
 }
 

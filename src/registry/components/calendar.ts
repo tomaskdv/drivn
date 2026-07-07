@@ -44,9 +44,9 @@ const styles = {
       'inline-flex items-center justify-center',
       'w-8 h-8 rounded-md text-sm font-medium cursor-pointer',
       'hover:bg-accent hover:text-accent-foreground',
-      'focus-visible:outline-none'
+      'outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50'
     ),
-    today: 'font-semibold text-primary',
+    today: 'font-semibold text-info',
     selected: cn(
       '[&>button]:bg-primary',
       '[&>button]:text-primary-foreground',
@@ -64,7 +64,8 @@ const styles = {
     dropdown: cn(
       'appearance-none bg-transparent text-sm',
       'font-medium text-foreground cursor-pointer',
-      'border-none outline-none'
+      'border-none outline-none',
+      'focus-visible:ring-[3px] focus-visible:ring-ring/50'
     ),
     week_number: cn(
       'w-8 text-[0.75rem]',

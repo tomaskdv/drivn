@@ -8,7 +8,7 @@ const styles = {
     'inline-flex items-center justify-center gap-2',
     'rounded-md text-sm font-medium',
     'transition-colors cursor-pointer',
-    'focus:outline-none',
+    'focus:outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50',
     'disabled:opacity-50 disabled:cursor-default'
   ),
   variants: {

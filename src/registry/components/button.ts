@@ -7,7 +7,8 @@ const styles = {
     'inline-flex items-center justify-center outline-none',
     'font-semibold transition-all duration-150',
     'cursor-pointer disabled:opacity-50',
-    'disabled:pointer-events-none'
+    'disabled:pointer-events-none',
+    'focus-visible:ring-[3px] focus-visible:ring-ring/50'
   ),
   sizes: {
     sm: 'h-8 px-3 text-sm gap-1.5',
@@ -15,11 +16,8 @@ const styles = {
     lg: 'h-12 px-6 text-base gap-2',
   },
   variants: {
-    default: 'bg-foreground text-background hover:scale-[1.02]',
-    secondary: cn(
-      'bg-card text-foreground border border-border',
-      'hover:bg-accent hover:border-border'
-    ),
+    default: 'bg-foreground text-background hover:bg-foreground/90',
+    secondary: 'bg-muted text-foreground hover:bg-muted/80',
     outline: 'border border-border text-foreground hover:border-foreground/20',
     destructive: 'bg-destructive text-destructive-foreground hover:bg-destructive/90',
   },

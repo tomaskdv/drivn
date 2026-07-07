@@ -8,8 +8,10 @@ const styles = {
   base: 'flex items-center gap-2 cursor-pointer',
   box: cn(
     'w-4 h-4 rounded-[4px] border border-border',
-    'transition-colors flex-shrink-0',
-    'flex items-center justify-center'
+    'transition-[color,box-shadow] flex-shrink-0',
+    'flex items-center justify-center',
+    'peer-focus-visible:ring-[3px] peer-focus-visible:ring-ring/50',
+    'peer-focus-visible:border-ring'
   ),
   checked: 'bg-primary border-primary',
   label: 'text-sm text-foreground select-none',
@@ -37,7 +39,7 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(({
         <input
           ref={ref}
           type="checkbox"
-          className="sr-only"
+          className="peer sr-only"
           checked={isChecked}
           disabled={disabled}
           onChange={(e) => {

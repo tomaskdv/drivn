@@ -22,6 +22,7 @@ const styles = {
   close: cn(
     'absolute top-4 right-4 w-8 h-8 cursor-pointer',
     'flex items-center justify-center rounded-full outline-none',
+    'focus-visible:ring-[3px] focus-visible:ring-ring/50',
     'text-muted-foreground hover:text-foreground',
     'hover:bg-accent transition-colors'
   ),

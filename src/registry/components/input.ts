@@ -5,7 +5,8 @@ const styles = {
   base: cn(
     'w-full h-10 px-4 border border-input rounded-[10px]',
     'text-foreground placeholder:text-muted-foreground text-sm',
-    'focus:outline-none transition-colors',
+    'focus:outline-none transition-[color,box-shadow]',
+    'focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:border-ring',
     'disabled:opacity-50 disabled:cursor-default'
   ),
 }

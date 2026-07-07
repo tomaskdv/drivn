@@ -22,7 +22,7 @@ const styles = {
       'bg-accent text-muted-foreground',
       'border-2 border-primary'
     ),
-    completed: 'bg-primary text-muted-foreground',
+    completed: 'bg-primary text-primary-foreground',
     upcoming: cn(
       'bg-accent text-muted-foreground',
       'border-2 border-border'
