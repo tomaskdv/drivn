@@ -109,6 +109,6 @@ import { cn } from '@/utils/cn'
 
 ## Dependencies
 - Components declare internal deps (other Drivn components)
-- Some components need npm packages (react-day-picker, cmdk, embla-carousel-react, sonner)
+- Some components need npm packages (react-day-picker, cmdk, embla-carousel-react, sonner, recharts)
 - The CLI resolves and installs all dependencies automatically
 `

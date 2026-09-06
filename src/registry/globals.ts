@@ -27,6 +27,13 @@ export const globalsBase = `@import "tailwindcss";
   --destructive: hsl(0 72% 51%);
   --destructive-foreground: hsl(0 0% 100%);
 
+  /* Charts (monochrome tints) */
+  --chart-1: hsl(240 6% 10%);
+  --chart-2: hsl(240 5% 24%);
+  --chart-3: hsl(240 5% 38%);
+  --chart-4: hsl(240 4% 52%);
+  --chart-5: hsl(240 4% 65%);
+
   /* Borders & Inputs */
   --border: hsl(214 32% 91%);
   --input: hsl(214 32% 91%);
@@ -61,6 +68,13 @@ export const globalsBase = `@import "tailwindcss";
   --color-success-foreground: var(--success-foreground);
   --color-info: var(--info);
   --color-info-foreground: var(--info-foreground);
+
+  /* Charts */
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
 
   /* Borders & Inputs */
   --color-border: var(--border);
@@ -108,6 +122,13 @@ export const themeTokens = `
   --destructive: hsl(0 84% 60%);
   --destructive-foreground: hsl(0 0% 100%);
 
+  /* Charts (monochrome tints) */
+  --chart-1: hsl(0 0% 98%);
+  --chart-2: hsl(0 0% 82%);
+  --chart-3: hsl(0 0% 66%);
+  --chart-4: hsl(0 0% 50%);
+  --chart-5: hsl(0 0% 35%);
+
   /* Borders & Inputs */
   --border: hsl(240 4% 16%);
   --input: hsl(240 4% 16%);
@@ -142,6 +163,13 @@ export const themeTokens = `
   --info-foreground: hsl(0 0% 100%);
   --destructive: hsl(0 72% 51%);
   --destructive-foreground: hsl(0 0% 100%);
+
+  /* Charts (monochrome tints) */
+  --chart-1: hsl(240 6% 10%);
+  --chart-2: hsl(240 5% 24%);
+  --chart-3: hsl(240 5% 38%);
+  --chart-4: hsl(240 4% 52%);
+  --chart-5: hsl(240 4% 65%);
 
   /* Borders & Inputs */
   --border: hsl(214 32% 91%);

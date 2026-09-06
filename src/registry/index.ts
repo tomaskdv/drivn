@@ -12,6 +12,7 @@ import { datePicker } from './components/date-picker.js'
 import { command } from './components/command.js'
 import { carousel } from './components/carousel.js'
 import { card } from './components/card.js'
+import { chart, chartTokens } from './components/chart.js'
 import { checkbox } from './components/checkbox.js'
 import { combobox } from './components/combobox.js'
 import { collapsible } from './components/collapsible.js'
@@ -44,7 +45,7 @@ import { toggle } from './components/toggle.js'
 import { table } from './components/table.js'
 import { tooltip } from './components/tooltip.js'
 
-export { globalsBase, themeTokens, themeProvider }
+export { globalsBase, themeTokens, themeProvider, chartTokens }
 
 export const calendarTokens = `
 /* react-day-picker theme integration */
@@ -138,6 +139,12 @@ export const registry: RegistryEntry[] = [
     description: 'Container with dot notation preview and info sub-components',
     dependencies: [],
     npmDependencies: [],
+  },
+  {
+    name: 'chart',
+    description: 'Charts powered by recharts with config-driven colors, themed tooltip, and legend',
+    dependencies: [],
+    npmDependencies: ['recharts'],
   },
   {
     name: 'checkbox',
@@ -348,6 +355,7 @@ export type ComponentName =
   | 'command'
   | 'carousel'
   | 'card'
+  | 'chart'
   | 'checkbox'
   | 'combobox'
   | 'collapsible'
@@ -394,6 +402,7 @@ export const components: Record<ComponentName, string> = {
   command,
   carousel,
   card,
+  chart,
   checkbox,
   combobox,
   collapsible,

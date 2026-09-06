@@ -8,7 +8,13 @@ import {
   readFile,
   fileExists,
 } from '../utils/config.js'
-import { registry, components, themeTokens, calendarTokens } from '../registry/index.js'
+import {
+  registry,
+  components,
+  themeTokens,
+  calendarTokens,
+  chartTokens,
+} from '../registry/index.js'
 import {
   detectPackageManager,
   getInstallCommand,
@@ -218,6 +224,26 @@ export async function add(componentNames: string[]) {
         writeFile(globalsPath, existing + calendarTokens)
         p.log.success(
           `Calendar tokens appended to ${pc.cyan(config.paths.globals)}`
+        )
+      }
+    }
+  }
+
+  // Handle chart globals
+  if (toInstall.has('chart') && config.paths.globals) {
+    const globalsPath = join(cwd, config.paths.globals)
+
+    if (fileExists(globalsPath)) {
+      const existing = readFile(globalsPath)
+
+      if (existing.includes('--chart-1')) {
+        p.log.warn(
+          'Chart tokens already exist in globals — skipped'
+        )
+      } else {
+        writeFile(globalsPath, existing + chartTokens)
+        p.log.success(
+          `Chart tokens appended to ${pc.cyan(config.paths.globals)}`
         )
       }
     }
